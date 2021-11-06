@@ -38,6 +38,10 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.12', require: false
   gem 'rubocop-rails', '~> 2.12', require: false
   gem 'rubocop-rspec', '~> 2.5', require: false
+  gem 'simplecov'
+  gem 'simplecov-html'
+  gem 'simplecov-lcov'
+  gem 'undercover'
 end
 
 group :development do
