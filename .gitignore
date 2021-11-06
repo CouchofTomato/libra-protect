@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore Ruby version manager
 .tool-versions
+
+# Ignore coverage results
+/coverage/
