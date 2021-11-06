@@ -69,5 +69,5 @@ jobs:
 
     - name: Run undercover
       run: |
-        git pull origin main:main --rebase
+        git fetch origin main:main
         bundle exec undercover --compare main
