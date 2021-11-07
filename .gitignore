@@ -40,3 +40,6 @@ yarn-debug.log*
 
 # Ignore coverage directory
 /coverage
+/config/credentials/test.key
+
+/config/credentials/development.key
