@@ -2,7 +2,7 @@
   "name": "libra-protect",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^7.0.0",
+    "@rails/actioncable": "^7.0.1",
     "@rails/activestorage": "^7.0.1",
     "@rails/ujs": "^7.0.1",
     "autoprefixer": "^10.4.2",
