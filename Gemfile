@@ -38,7 +38,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', '~> 1.24', require: false
   gem 'rubocop-performance', '~> 1.13', require: false
-  gem 'rubocop-rails', '~> 2.12', require: false
+  gem 'rubocop-rails', '~> 2.13', require: false
   gem 'rubocop-rspec', '~> 2.6', require: false
   gem 'simplecov'
   gem 'simplecov-html'
