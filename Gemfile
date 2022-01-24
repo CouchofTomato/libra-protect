@@ -36,7 +36,7 @@ gem 'jsbundling-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop', '~> 1.24', require: false
+  gem 'rubocop', '~> 1.25', require: false
   gem 'rubocop-performance', '~> 1.13', require: false
   gem 'rubocop-rails', '~> 2.13', require: false
   gem 'rubocop-rspec', '~> 2.6', require: false
