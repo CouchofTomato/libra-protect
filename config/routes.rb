@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
 
-  root 'dashboard#show'
+  root 'dashboards#show'
 
   resource :dashboard, only: [:show]
 
