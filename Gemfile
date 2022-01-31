@@ -60,7 +60,7 @@ end
 group :test do
   gem 'capybara'
   gem 'cuprite'
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 5.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
