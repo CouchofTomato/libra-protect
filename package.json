@@ -2,6 +2,7 @@
   "name": "libra-protect",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
     "@rails/actioncable": "^7.0.1",
     "@rails/activestorage": "^7.0.1",
     "@rails/ujs": "^7.0.1",
