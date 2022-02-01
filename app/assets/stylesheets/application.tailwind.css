@@ -4,26 +4,26 @@
 
 @layer base {
   h1 {
-    @apply text-5xl font-medium leading-tight mt-0 mb-2 text-gray-600;
+    @apply mt-0 mb-2 text-5xl font-medium leading-tight text-gray-600;
   }
 
   h2 {
-    @apply text-4xl font-medium leading-tight mt-0 mb-2 text-gray-600;
+    @apply mt-0 mb-2 text-4xl font-medium leading-tight text-gray-600;
   }
 
   h3 {
-    @apply text-3xl font-medium leading-tight mt-0 mb-2 text-gray-600;
+    @apply mt-0 mb-2 text-3xl font-medium leading-tight text-gray-600;
   }
 
   h4 {
-    @apply text-2xl font-medium leading-tight mt-0 mb-2 text-gray-600;
+    @apply mt-0 mb-2 text-2xl font-medium leading-tight text-gray-600;
   }
 
   h5 {
-    @apply text-xl font-medium leading-tight mt-0 mb-2 text-gray-600;
+    @apply mt-0 mb-2 text-xl font-medium leading-tight text-gray-600;
   }
 
   h6 {
-    @apply text-base font-medium leading-tight mt-0 mb-2 text-gray-600;
+    @apply mt-0 mb-2 text-base font-medium leading-tight text-gray-600;
   }
 }

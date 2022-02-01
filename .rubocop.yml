@@ -1,3 +1,5 @@
+inherit_from:
+  - node_modules/@prettier/plugin-ruby/rubocop.yml
 require:
   - rubocop-rails
   - rubocop-performance
@@ -10,14 +12,14 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/BlockLength:
   Exclude:
-    - 'config/environments/*.rb'
+    - "config/environments/*.rb"
 Metrics/MethodLength:
   Exclude:
-    - 'db/migrate/*.rb'
+    - "db/migrate/*.rb"
 Layout/LineLength:
   Exclude:
-    - 'config/initializers/*.rb'
-    - 'db/migrate/*.rb'
+    - "config/initializers/*.rb"
+    - "db/migrate/*.rb"
 Style/StringLiterals:
   Exclude:
-    - 'db/migrate/*.rb'
+    - "db/migrate/*.rb"
