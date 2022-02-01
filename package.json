@@ -2,6 +2,7 @@
   "name": "libra-protect",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
     "@rails/actioncable": "^7.0.1",
     "@rails/activestorage": "^7.0.1",
     "@rails/ujs": "^7.0.1",
@@ -13,7 +14,11 @@
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
-  "devDependencies": {},
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^2.0.0",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.4"
+  },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
