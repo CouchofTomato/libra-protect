@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.8'
 gem 'devise_invitable', '~> 2.0.0'
+gem 'inline_svg'
 gem 'jsbundling-rails'
 gem 'stimulus-rails'
 
