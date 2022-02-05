@@ -38,6 +38,8 @@ gem 'stimulus-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'rspec-rails', '~> 5.1.0'
   gem 'rubocop', '~> 1.25', require: false
   gem 'rubocop-performance', '~> 1.13', require: false
   gem 'rubocop-rails', '~> 2.13', require: false
@@ -64,7 +66,6 @@ end
 group :test do
   gem 'capybara'
   gem 'cuprite'
-  gem 'rspec-rails', '~> 5.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
