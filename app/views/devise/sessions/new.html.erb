@@ -5,14 +5,14 @@
       <div>
         <%= f.label :email %>
         <div class="mt-1">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", data: { test_id: 'email-field' } %>
         </div>
       </div>
     
       <div>
         <%= f.label :password %>
         <div class="mt-1">
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.password_field :password, autocomplete: "current-password", data: { test_id: 'password-field' } %>
         </div>
       </div>
     
@@ -26,7 +26,7 @@
       <% end %>
     
       <div>
-        <%= f.submit "Log in" %>
+        <%= f.submit "Log in", data: { test_id: 'submit-btn' } %>
       </div>
     <% end %>
     
