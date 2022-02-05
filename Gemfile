@@ -11,8 +11,6 @@ gem 'rails', '~> 7.0.1'
 gem 'pg', '~> 1.3'
 # Use Puma as the app server
 gem 'puma', '~> 5.6'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -33,6 +31,7 @@ gem 'devise', '~> 4.8'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'inline_svg'
 gem 'jsbundling-rails'
+gem 'sprockets-rails'
 gem 'stimulus-rails'
 
 group :development, :test do
