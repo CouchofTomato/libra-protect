@@ -54,6 +54,9 @@ jobs:
 
       - name: Build Esbuild
         run: yarn build
+      
+      - name: Build CSS
+        run: yarn build:css
 
       - name: Run rubocop checks
         run: bundle exec rubocop -D
