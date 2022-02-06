@@ -2,7 +2,10 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application";
+import { application } from "./application"
 
-import ClassToggleController from "./class_toggle_controller.js";
-application.register("class-toggle", ClassToggleController);
+import ClassToggleController from "./class_toggle_controller.js"
+application.register("class-toggle", ClassToggleController)
+
+import TransitionController from "./transition_controller.js"
+application.register("transition", TransitionController)
