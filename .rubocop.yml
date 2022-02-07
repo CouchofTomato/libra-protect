@@ -24,3 +24,6 @@ Layout/LineLength:
 Style/StringLiterals:
   Exclude:
     - "db/migrate/*.rb"
+Lint/MissingSuper:
+  Exclude:
+    - "app/components/**/*.rb"
