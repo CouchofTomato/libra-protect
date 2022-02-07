@@ -9,12 +9,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body class="h-full">
-    <% flash.each do |type, message| %>
-      <div data-test-id='flash'>
-        <button class='close' data-dismiss='alert'>&times;</button>
-        <%= message.html_safe %>
-      </div>
-    <% end %>
     <%= yield %>
+    <div aria-live="assertive" class="z-50 fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start" data-controller="transition">
+      <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
+        <% flash.each do |type, message| %>
+          <%= render TemporaryNotificationComponent.new(type: type, message: message) %>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>
