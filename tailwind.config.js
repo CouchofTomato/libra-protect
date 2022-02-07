@@ -5,6 +5,8 @@ module.exports = {
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
     "./app/form_builders/**/*.rb",
+    "./app/components/**/*.rb",
+    "./app/components/**/*.html.erb"
   ],
   plugins: [require("@tailwindcss/forms")],
   theme: {
