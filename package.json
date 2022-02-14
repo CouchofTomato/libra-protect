@@ -4,7 +4,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.0.1",
     "@rails/actioncable": "^7.0.1",
-    "@rails/activestorage": "^7.0.1",
+    "@rails/activestorage": "^7.0.2",
     "@rails/ujs": "^7.0.1",
     "@tailwindcss/forms": "^0.4.0",
     "autoprefixer": "^10.4.2",
