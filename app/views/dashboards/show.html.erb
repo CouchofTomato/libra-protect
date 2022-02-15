@@ -39,6 +39,7 @@
         class="mt-5 h-full flex-shrink-0 divide-y divide-cyan-800 overflow-y-auto"
         aria-label="Sidebar"
       >
+        
         <div class="space-y-1 px-2">
           <%= link_to root_path, class: "group flex items-center rounded-md
           hover:bg-violet-200 px-2 py-2 text-base font-medium
@@ -46,12 +47,16 @@
             <%= inline_svg 'icons/home', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             Home
           <% end %>
-          <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
-          hover:bg-violet-200 px-2 py-2 text-base font-medium
-          text-white", aria: { current: 'page' } do %> 
-            <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
-            Sign Out
-          <% end %>
+        </div>
+        <div class="mt-6 pt-6">
+          <div class="px-2 space-y-1">
+            <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
+            hover:bg-violet-200 px-2 py-2 text-base font-medium
+            text-white", aria: { current: 'page' } do %> 
+              <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+              Sign Out
+            <% end %>
+          </div>
         </div>
       </nav>
     </div>
@@ -79,12 +84,28 @@
             <%= inline_svg 'icons/home', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             Home
           <% end %>
-          <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
-          hover:bg-violet-200 px-2 py-2 text-base font-medium
-          text-white", aria: { current: 'page' } do %> 
-            <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
-            Sign Out
-          <% end %>
+        </div>
+        <% if current_user.admin? %>
+          <div class="mt-6 pt-6">
+            <div class="px-2 space-y-1">
+              <%= link_to admin_root_path, class: "group flex items-center rounded-md
+              hover:bg-violet-200 px-2 py-2 text-base font-medium
+              text-white", aria: { current: 'page' }, data: { test_id: 'admin-dashboard-link' } do %> 
+                <%= inline_svg 'icons/cog_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+                Admin
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <div class="mt-6 pt-6">
+          <div class="px-2 space-y-1">
+            <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
+            hover:bg-violet-200 px-2 py-2 text-base font-medium
+            text-white", aria: { current: 'page' } do %> 
+              <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+              Sign Out
+            <% end %>
+          </div>
         </div>
       </nav>
     </div>
