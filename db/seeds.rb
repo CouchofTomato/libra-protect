@@ -7,3 +7,6 @@ User.create(email: 'admin@admin.com', password: 'password', admin: true)
 
 # Non-admin User
 User.create(email: 'user@user.com', password: 'password')
+
+# Insurer
+Insurer.create(name: 'BUPA Global')
