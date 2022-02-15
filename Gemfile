@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'administrate', github: 'n-studio/administrate', branch: 'compile-assets'
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.8'
 gem 'devise_invitable', '~> 2.0.0'
