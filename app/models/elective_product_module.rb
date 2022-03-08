@@ -1,0 +1,2 @@
+class ElectiveProductModule < ProductModule
+end
