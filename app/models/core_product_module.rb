@@ -1,0 +1,2 @@
+class CoreProductModule < ProductModule
+end
