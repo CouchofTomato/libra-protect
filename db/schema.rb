@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_07_155950) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_08_215737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_155950) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "linked_product_modules", force: :cascade do |t|
+    t.integer "core_product_module_id", null: false
+    t.integer "elective_product_module_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["core_product_module_id", "elective_product_module_id"], name: "index_linked_product_modules_on_core_and_elective_modules", unique: true
   end
 
   create_table "product_modules", force: :cascade do |t|
@@ -92,6 +100,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_155950) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "linked_product_modules", "product_modules", column: "core_product_module_id"
+  add_foreign_key "linked_product_modules", "product_modules", column: "elective_product_module_id"
   add_foreign_key "product_modules", "products"
   add_foreign_key "products", "insurers"
 end
