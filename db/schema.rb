@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_08_215737) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_10_152809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_08_215737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["core_product_module_id", "elective_product_module_id"], name: "index_linked_product_modules_on_core_and_elective_modules", unique: true
+  end
+
+  create_table "medical_benefits", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "category"], name: "index_medical_benefits_on_name_and_category", unique: true
   end
 
   create_table "product_modules", force: :cascade do |t|

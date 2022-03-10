@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users
       resources :insurers
       resources :products
+      resources :medical_benefits
 
       root to: 'users#index'
     end
