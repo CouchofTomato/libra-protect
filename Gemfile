@@ -34,7 +34,7 @@ gem 'inline_svg'
 gem 'jsbundling-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'view_component', '~> 2.50'
+gem 'view_component', '~> 2.51'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
