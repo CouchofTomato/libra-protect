@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_10_152809) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_28_201410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_10_152809) do
     t.index ["name", "category"], name: "index_medical_benefits_on_name_and_category", unique: true
   end
 
+  create_table "product_module_medical_benefits", force: :cascade do |t|
+    t.bigint "product_module_id", null: false
+    t.bigint "medical_benefit_id", null: false
+    t.string "benefit_limit", null: false
+    t.integer "benefit_limit_status", null: false
+    t.integer "benefit_weighting", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medical_benefit_id"], name: "index_product_module_medical_benefits_on_medical_benefit_id"
+    t.index ["product_module_id", "medical_benefit_id"], name: "index_product_module_benefits_on_product_module_and_benefit", unique: true
+    t.index ["product_module_id"], name: "index_product_module_medical_benefits_on_product_module_id"
+  end
+
   create_table "product_modules", force: :cascade do |t|
     t.string "name"
     t.bigint "product_id", null: false
@@ -110,6 +123,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_10_152809) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "linked_product_modules", "product_modules", column: "core_product_module_id"
   add_foreign_key "linked_product_modules", "product_modules", column: "elective_product_module_id"
+  add_foreign_key "product_module_medical_benefits", "medical_benefits"
+  add_foreign_key "product_module_medical_benefits", "product_modules"
   add_foreign_key "product_modules", "products"
   add_foreign_key "products", "insurers"
 end
