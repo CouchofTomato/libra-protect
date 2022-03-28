@@ -1,3 +1,4 @@
+# rubocop:disable Rails/BulkChangeTable
 class DeviseInvitableAddToUsers < ActiveRecord::Migration[6.1]
   def up
     change_table :users, bulk: true do |t|
@@ -25,3 +26,4 @@ class DeviseInvitableAddToUsers < ActiveRecord::Migration[6.1]
     end
   end
 end
+# rubocop:enable Rails/BulkChangeTable

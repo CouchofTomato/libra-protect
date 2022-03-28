@@ -12,7 +12,7 @@ module Admin
     def authenticate_admin
       return if current_user.admin?
 
-      redirect_to root_path, alert: 'You are not authorised to access this page!'
+      redirect_to root_path, alert: t('admin.authenticate_admin.alert')
     end
 
     # Override this value to specify the number of elements to display at a time
