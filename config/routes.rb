@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :insurers
       resources :products
       resources :core_product_modules
+      resources :elective_product_modules
       resources :medical_benefits
       resources :product_module_medical_benefits
 
