@@ -3,6 +3,7 @@ FactoryBot.define do
     name { 'MyString' }
     product
     type { '' }
+    sum_assured { 'USD 1,000,000 | GBP 600,000 | EUR 750,000' }
 
     trait :core_product_module do
       type { 'CoreProductModule' }

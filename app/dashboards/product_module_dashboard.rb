@@ -14,6 +14,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     type: Field::String,
+    sum_assured: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,9 +25,9 @@ class ProductModuleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    product
-    product_module_medical_benefits
-    medical_benefits
+    name
+    type
+    sum_assured
     id
   ].freeze
 
@@ -39,6 +40,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     id
     name
     type
+    sum_assured
     created_at
     updated_at
   ].freeze
@@ -52,6 +54,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     medical_benefits
     name
     type
+    sum_assured
   ].freeze
 
   # COLLECTION_FILTERS
