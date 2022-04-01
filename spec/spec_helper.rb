@@ -3,11 +3,17 @@
 require 'simplecov'
 require 'simplecov-lcov'
 
-SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+SimpleCov::Formatter::LcovFormatter.config do |c|
+  c.report_with_single_file = true # vscode-coverage-gutters prefers a single file for lcov reporting
+  c.output_directory = 'coverage' # vscode-coverage-gutters default directory path is 'coverage'
+  c.lcov_file_name = 'lcov.info' # vscode-coverage-gutters default report filename is 'lcov.info'
+end
+
 SimpleCov.formatter =
   SimpleCov::Formatter::MultiFormatter.new(
     [SimpleCov::Formatter::LcovFormatter, SimpleCov::Formatter::HTMLFormatter]
   )
+
 SimpleCov.start do
   add_filter(%r{^/spec/}) # For RSpec
   enable_coverage(:branch)
