@@ -98,7 +98,7 @@ FactoryBot.create(:medical_benefit, name: 'Out of Area Cover', category: 'additi
 #----------BUPA GLOBAL LIFELINE GOLD---------#
 FactoryBot.create(:insurer, name: 'BUPA Global') do |insurer|
   FactoryBot.create(:product, name: 'Lifeline', insurer: insurer) do |product|
-    FactoryBot.create(:product_module, :core_product_module, product: product, name: 'Gold') do |product_module|
+    FactoryBot.create(:product_module, :core_product_module, product: product, name: 'Gold', sum_assured: 'Unlimited') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Hospital Accomodation'),
                                               benefit_limit: 'Paid in full',
                                               benefit_limit_status: 'paid_in_full',
@@ -304,7 +304,7 @@ FactoryBot.create(:insurer, name: 'BUPA Global') do |insurer|
                                               benefit_limit_status: 'paid_in_full',
                                               product_module: product_module)
     end
-    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Evacuation') do |product_module|
+    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Evacuation', sum_assured: 'Within Overall Limit') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Evacuation Transport Costs to Nearest Country'),
                                               benefit_limit: 'Paid in full',
                                               benefit_limit_status: 'paid_in_full',
@@ -322,7 +322,7 @@ FactoryBot.create(:insurer, name: 'BUPA Global') do |insurer|
                                               benefit_limit_status: 'paid_in_full',
                                               product_module: product_module)
     end
-    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Repatriation') do |product_module|
+    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Repatriation', sum_assured: 'Within Overall Limit') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Evacuation Transport Costs to Nearest Country'),
                                               benefit_limit: 'Paid in full',
                                               benefit_limit_status: 'paid_in_full',
@@ -354,7 +354,7 @@ end
 #----------CIGNA GLOBAL HEALTH OPTIONS PLATINUM---------#
 FactoryBot.create(:insurer, name: 'Cigna Global') do |insurer|
   FactoryBot.create(:product, name: 'Health Options', insurer: insurer) do |product|
-    FactoryBot.create(:product_module, :core_product_module, product: product, name: 'Platinum Inpatient') do |product_module|
+    FactoryBot.create(:product_module, :core_product_module, product: product, name: 'Platinum Inpatient', sum_assured: 'Unlimited') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Hospital Accomodation'),
                                               benefit_limit: 'Paid in full',
                                               benefit_limit_status: 'paid_in_full',
@@ -461,7 +461,7 @@ FactoryBot.create(:insurer, name: 'Cigna Global') do |insurer|
                                               product_module: product_module)
       
     end
-    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum Outpatient') do |product_module|
+    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum Outpatient', sum_assured: 'Within Overall Limit') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Consultants Fees'),
                                               benefit_limit: 'Paid in full',
                                               benefit_limit_status: 'paid_in_full',
@@ -515,7 +515,7 @@ FactoryBot.create(:insurer, name: 'Cigna Global') do |insurer|
                                               benefit_limit_status: 'paid_in_full',
                                               product_module: product_module)
     end
-    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum International Evacuation and Crisis Assistance Plus') do |product_module|
+    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum International Evacuation and Crisis Assistance Plus', sum_assured: 'Within Overall Limit') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Evacuation Transport Costs to Nearest Country'),
                                               benefit_limit: 'Paid in full',
                                               benefit_limit_status: 'paid_in_full',
@@ -537,13 +537,13 @@ FactoryBot.create(:insurer, name: 'Cigna Global') do |insurer|
                                               benefit_limit_status: 'paid_in_full',
                                               product_module: product_module)
     end
-    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum International Health and Wellbeing') do |product_module|
+    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum International Health and Wellbeing', sum_assured: 'Within Overall Limit') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Health Screening and Wellness Checks'),
                                               benefit_limit: 'USD 600 | GBP 400 | EUR 440 each membership year',
                                               benefit_limit_status: 'capped',
                                               product_module: product_module)
     end
-    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum International Vision and Dental') do |product_module|
+    FactoryBot.create(:product_module, :elective_product_module, product: product, name: 'Platinum International Vision and Dental', sum_assured: 'Within Overall Limit') do |product_module|
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: 'Preventative'),
                                               benefit_limit: 'USD 5,500 | GBP 3,500 | EUR 4,300 each membership year',
                                               benefit_limit_status: 'capped',
