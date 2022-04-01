@@ -14,6 +14,7 @@ Metrics/BlockLength:
   Exclude:
     - "config/environments/*.rb"
     - "spec/**/*.rb"
+    - "db/seeds.rb"
 Metrics/MethodLength:
   Exclude:
     - "db/migrate/*.rb"
@@ -21,6 +22,7 @@ Layout/LineLength:
   Exclude:
     - "config/initializers/*.rb"
     - "db/migrate/*.rb"
+    - "db/seeds.rb"
 Style/StringLiterals:
   Exclude:
     - "db/migrate/*.rb"
