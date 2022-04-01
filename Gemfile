@@ -11,12 +11,10 @@ gem 'rails', '~> 7.0.2'
 gem 'pg', '~> 1.3'
 # Use Puma as the app server
 gem 'puma', '~> 5.6'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,6 +32,7 @@ gem 'inline_svg'
 gem 'jsbundling-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem 'turbo-rails', '~> 1.0'
 gem 'view_component', '~> 2.52'
 
 group :development, :test do
