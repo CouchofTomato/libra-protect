@@ -1,7 +1,7 @@
 <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
   <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
     <h2>Log in</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
       <div>
         <%= f.label :email %>
         <div class="mt-1">

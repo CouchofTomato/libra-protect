@@ -99,7 +99,7 @@
         <% end %>
         <div class="mt-6 pt-6">
           <div class="px-2 space-y-1">
-            <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
+            <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class: "group flex items-center rounded-md
             hover:bg-violet-200 px-2 py-2 text-base font-medium
             text-white", aria: { current: 'page' } do %> 
               <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
