@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   root 'dashboards#show'
 
   resource :dashboard, only: [:show]
+  resource :health_plan_comparisons, only: [:new, :create, :show]
 
   as :user do
     get 'users/edit' => 'devise/registrations#edit',
