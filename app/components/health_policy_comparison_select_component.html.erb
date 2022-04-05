@@ -1,0 +1,93 @@
+<h2>Policy Select</h2>
+<%= form_with(model: @health_insurance_policy, url: new_health_plan_comparisons_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
+  <turbo-frame id="policy-select-form">
+    <div class="mt-3" data-controller="element">
+      <%= f.label :insurer_id %>
+      <div class="mt-1">
+        <%= f.select :insurer_id, Insurer.all.map { [_1.name, _1.id] }, { include_blank: 'Choose an insurer'}, data: { action: 'change->element#click' } %>
+      </div>
+      <noscript>
+        <div class='mt-1 flex items-center justify-center'>
+          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full)) do %>
+            Load Products
+          <% end %>
+        </div>
+      </noscript>
+      <div class='mt-1 items-center justify-center hidden'>
+        <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
+          Load Products
+        <% end %>
+      </div>
+    </div>
+    <% if products_viewable %>
+      <div class="mt-3" data-controller="element">
+        <%= f.label :product_id %>
+        <div class="mt-1">
+          <%= f.select :product_id, @health_insurance_policy.insurer.products.map { [_1.name, _1.id] }, { include_blank: 'Choose a product' }, data: { action: 'change->element#click', test_id: 'product-select-field' } %>
+        </div>
+        <noscript>
+          <div class='mt-1 flex items-center justify-center'>
+            <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full)) do %>
+              Load Core Product Modules
+            <% end %>
+          </div>
+        </noscript>
+        <div class='mt-1 hidden items-center justify-center'>
+          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
+            Load Core Product Modules
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if core_product_modules_viewable %>
+      <div class="mt-3" data-controller="element" data-test-id="core-product-module-fields">
+        <%= f.label :core_product_module_id, class: 'text-base font-medium text-gray-900' %>
+        <fieldset class="mt-4">
+          <legend class="sr-only">Core Product Module selection</legend>
+          <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+            <%= f.collection_radio_buttons :core_product_module_id, @health_insurance_policy.product.core_product_modules, :id, :name do |radio_button| %>
+              <div class="flex items-center">
+                <%= radio_button.radio_button(data: { action: 'change->element#click' }) %>
+                <%= radio_button.label(class: 'ml-3 block text-sm font-medium text-gray-700') %>
+              </div>
+            <% end %>
+          </div>
+        </fieldset>
+        <noscript>
+          <div class='mt-1 flex items-center justify-center'>
+            <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full)) do %>
+              Load Elective Modules
+            <% end %>
+          </div>
+        </noscript>
+        <div class='mt-1 hidden items-center justify-center'>
+          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
+            Load Elective Modules
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if elective_product_modules_viewable %>
+      <div class="mt-3" data-test-id="elective-product-modules-fields">
+        <%= f.label :elective_product_module_ids, class: 'text-base font-medium text-gray-900' %>
+        <% active_elective_product_module_categories.each do |category| %>
+          <div class="mt-2"><%= f.label category, class: 'text-base font-medium text-gray-900' %></div>
+          <fieldset class="mt-4">
+            <legend class="sr-only"><%= "#{category} elective product module selection" %></legend>
+            <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+              <%= collection_radio_buttons nil, "health_insurance_policy[elective_product_module_ids][#{category}]", @health_insurance_policy.core_product_module.elective_product_modules.group_by(&:category)[category], :id, :name do |radio_button| %>
+                <div class="flex items-center">
+                  <%= radio_button.radio_button(checked: selected_elective_product_module(radio_button.value)) %>
+                  <%= radio_button.label(class: 'ml-3 block text-sm font-medium text-gray-700') %>
+                </div>
+              <% end %>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mt-4">
+      <%= f.submit "Add To Comparison", data: { test_id: 'submit-btn' } %>
+    </div>
+  </turbo-frame>
+<% end %>
