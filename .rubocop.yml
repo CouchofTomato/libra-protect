@@ -29,3 +29,6 @@ Style/StringLiterals:
 Lint/MissingSuper:
   Exclude:
     - "app/components/**/*.rb"
+Metrics/ParameterLists:
+  Exclude:
+    - "app/form_builders/tailwind_form_builder.rb"

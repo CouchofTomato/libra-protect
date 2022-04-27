@@ -14,6 +14,8 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     type: Field::String,
+    category: Field::Select.with_options(searchable: false, collection: ->(field) {
+      field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     sum_assured: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -40,6 +42,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     id
     name
     type
+    category
     sum_assured
     created_at
     updated_at
@@ -55,6 +58,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     name
     type
     sum_assured
+    category
   ].freeze
 
   # COLLECTION_FILTERS

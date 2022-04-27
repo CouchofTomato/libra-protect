@@ -4,6 +4,7 @@ FactoryBot.define do
     product
     type { '' }
     sum_assured { 'USD 1,000,000 | GBP 600,000 | EUR 750,000' }
+    category { 0 }
 
     trait :core_product_module do
       type { 'CoreProductModule' }

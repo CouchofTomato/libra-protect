@@ -7,5 +7,8 @@ import { application } from "./application"
 import ClassToggleController from "./class_toggle_controller.js"
 application.register("class-toggle", ClassToggleController)
 
+import ElementController from "./element_controller.js"
+application.register("element", ElementController)
+
 import TransitionController from "./transition_controller.js"
 application.register("transition", TransitionController)

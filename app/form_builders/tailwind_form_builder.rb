@@ -5,8 +5,13 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
       'focus:ring-orange-500 h-4 w-4 text-orange-600 border-gray-300 rounded',
     input:
       'appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm',
-    label: 'block text-sm font-medium text-gray-700',
-    submit_button:
+    label:
+      'block text-sm font-medium text-gray-700',
+    select:
+      'mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md',
+    collection_radio_buttons:
+      'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300',
+      submit_button:
       'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-400 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300'
   }.freeze
 
@@ -46,6 +51,28 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
       options.reverse_merge(class: ELEMENT_CLASS_MAPPINGS.fetch(:check_box)),
       checked_value,
       unchecked_value
+    )
+  end
+
+  def select(method, choices = nil, options = {}, html_options = {}, &block)
+    super(
+      method,
+      choices,
+      options,
+      html_options.reverse_merge(class: ELEMENT_CLASS_MAPPINGS.fetch(:select)),
+      &block
+    )
+  end
+
+  def collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
+    super(
+      method,
+      collection,
+      value_method,
+      text_method,
+      options,
+      html_options.reverse_merge(class: ELEMENT_CLASS_MAPPINGS.fetch(:collection_radio_buttons)),
+      &block
     )
   end
 
