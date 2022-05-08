@@ -1,0 +1,141 @@
+<div class="min-h-full">
+  <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+  <div
+    class="fixed inset-0 z-40 flex lg:hidden"
+    role="dialog"
+    aria-modal="true"
+    data-controller="class-toggle"
+  >
+    <div
+      class="fixed inset-0 bg-gray-600 bg-opacity-75 opacity-0 transition-opacity duration-300 ease-linear"
+      aria-hidden="true"
+      data-class-toggle-target="toggle"
+      data-toggle-classes="opacity-0 opacity-100"
+    ></div>
+    <div
+      class="relative flex w-full max-w-xs flex-1 -translate-x-full transform flex-col bg-violet-50 pt-5 pb-4 transition duration-300 ease-in-out"
+      data-class-toggle-target="toggle"
+      data-toggle-classes="-translate-x-full translate-x-0"
+    >
+      <div
+        class="absolute top-0 right-0 -mr-12 pt-2 opacity-0 duration-300 ease-in-out"
+        data-class-toggle-target="toggle"
+        data-toggle-classes="opacity-0 opacity-100"
+      >
+        <button
+          type="button"
+          class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          data-action="class-toggle#switch"
+        >
+          <span class="sr-only">Close sidebar</span>
+          <%= inline_svg 'icons/close-button', class: 'h-6 w-6 text-white' %>
+        </button>
+      </div>
+
+      <div class="flex flex-shrink-0 items-center px-4">
+        <%= image_tag 'logo_white_text', alt: 'Logo' %>
+      </div>
+      <nav
+        class="mt-5 h-full flex-shrink-0 divide-y divide-cyan-800 overflow-y-auto"
+        aria-label="Sidebar"
+      >
+        
+        <div class="space-y-1 px-2">
+          <%= link_to root_path, class: "group flex items-center rounded-md
+          hover:bg-violet-200 px-2 py-2 text-base font-medium
+          text-white", aria: { current: 'page' } do %> 
+            <%= inline_svg 'icons/home', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            Home
+          <% end %>
+          <%= link_to new_health_plan_comparisons_path(new: true), class: "group flex items-center rounded-md
+          hover:bg-violet-200 px-2 py-2 text-base font-medium
+          text-white", aria: { current: 'page' } do %> 
+            <%= inline_svg 'icons/chart_bar_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            New Comparison
+          <% end %>
+        </div>
+        <div class="mt-6 pt-6">
+          <div class="px-2 space-y-1">
+            <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
+            hover:bg-violet-200 px-2 py-2 text-base font-medium
+            text-white", aria: { current: 'page' } do %> 
+              <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+              Sign Out
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="w-14 flex-shrink-0" aria-hidden="true">
+      <!-- Dummy element to force sidebar to shrink to fit close icon -->
+    </div>
+  </div>
+
+  <!-- Static sidebar for desktop -->
+  <div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+    <!-- Sidebar component -->
+    <div class="flex flex-grow flex-col overflow-y-auto bg-violet-50 pt-5 pb-4">
+      <div class="flex flex-shrink-0 items-center px-4">
+        <%= image_tag 'logo_white_text', alt: 'Logo' %>
+      </div>
+      <nav
+        class="mt-5 flex flex-1 flex-col divide-y divide-cyan-800 overflow-y-auto"
+        aria-label="Sidebar"
+      >
+        <div class="space-y-1 px-2">
+          <%= link_to root_path, class: "group flex items-center rounded-md
+          hover:bg-violet-200 px-2 py-2 text-base font-medium
+          text-white", aria: { current: 'page' } do %> 
+            <%= inline_svg 'icons/home', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            Home
+          <% end %>
+          <%= link_to new_health_plan_comparisons_path(new: true), class: "group flex items-center rounded-md
+          hover:bg-violet-200 px-2 py-2 text-base font-medium
+          text-white", aria: { current: 'page' }, data: { test_id: 'health-comparison-link' } do %> 
+            <%= inline_svg 'icons/chart_bar_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            New Comparison
+          <% end %>
+        </div>
+        <% if current_user.admin? %>
+          <div class="mt-6 pt-6">
+            <div class="px-2 space-y-1">
+              <%= link_to admin_root_path, class: "group flex items-center rounded-md
+              hover:bg-violet-200 px-2 py-2 text-base font-medium
+              text-white", aria: { current: 'page' }, data: { test_id: 'admin-dashboard-link' } do %> 
+                <%= inline_svg 'icons/cog_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+                Admin
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <div class="mt-6 pt-6">
+          <div class="px-2 space-y-1">
+            <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class: "group flex items-center rounded-md
+            hover:bg-violet-200 px-2 py-2 text-base font-medium
+            text-white", aria: { current: 'page' } do %> 
+              <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+              Sign Out
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="flex flex-1 flex-col lg:pl-64">
+    <div
+      class="relative z-10 flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
+    >
+      <button
+        type="button"
+        class="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <%= inline_svg 'icons/menu', class: 'h-6 w-6' %>
+      </button>
+    </div>
+    <%= content %>
+  </div>
+</div>
+

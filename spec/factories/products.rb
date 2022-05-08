@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    name { 'MyString' }
+    name { "MyString" }
     insurer
   end
 end

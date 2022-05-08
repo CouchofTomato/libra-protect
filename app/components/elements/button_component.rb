@@ -12,7 +12,7 @@ module Elements
 
     def classes
       type_classes.concat(width_classes)
-        .join(' ')
+        .join(" ")
     end
 
     # rubocop:disable Layout/LineLength
@@ -40,7 +40,7 @@ text-persian-blue-700 bg-persian-blue-50 hover:bg-persian-blue-100 focus:outline
     def data_attributes
       @data_attributes
         .map { |key, value| "data-#{key.to_s.dasherize}=#{value.to_s.dasherize}" }
-        .join(' ')
+        .join(" ")
     end
   end
 end

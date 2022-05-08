@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Insurer, type: :model do
   subject(:insurer) { create(:insurer) }

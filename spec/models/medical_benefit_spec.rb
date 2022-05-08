@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe MedicalBenefit, type: :model do
   subject(:medical_benefit) { create(:medical_benefit) }

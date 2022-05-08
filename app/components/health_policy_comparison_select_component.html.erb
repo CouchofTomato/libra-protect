@@ -1,10 +1,10 @@
 <h2>Policy Select</h2>
-<%= form_with(model: @health_insurance_policy, url: new_health_plan_comparisons_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
+<%= form_with(model: @health_insurance_policy, url: comparisons_health_insurance_policies_path, html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
   <turbo-frame id="policy-select-form">
     <div class="mt-3" data-controller="element">
       <%= f.label :insurer_id %>
       <div class="mt-1">
-        <%= f.select :insurer_id, Insurer.all.map { [_1.name, _1.id] }, { include_blank: 'Choose an insurer'}, data: { action: 'change->element#click' } %>
+        <%= f.select :insurer_id, Insurer.all.map { [_1.name, _1.id] }, { include_blank: 'Choose an insurer'}, data: { action: 'change->element#click', test_id: 'insurer-select-field' } %>
       </div>
       <noscript>
         <div class='mt-1 flex items-center justify-center'>

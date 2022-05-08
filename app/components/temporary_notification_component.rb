@@ -8,15 +8,15 @@ class TemporaryNotificationComponent < ViewComponent::Base
 
   def type_icon
     {
-      alert: 'icons/x_circle_outline',
-      notice: 'icons/check_circle_outline'
+      alert: "icons/x_circle_outline",
+      notice: "icons/check_circle_outline"
     }.fetch(@type.to_sym)
   end
 
   def type_class
     {
-      alert: 'h-6 w-6 text-red-400',
-      notice: 'h-6 w-6 text-green-400'
+      alert: "h-6 w-6 text-red-400",
+      notice: "h-6 w-6 text-green-400"
     }.fetch(@type.to_sym)
   end
 end

@@ -5,7 +5,7 @@ Capybara.default_max_wait_time = 2
 # That makes tests less dependent on slightly UI changes.
 Capybara.default_normalize_ws = true
 
-Capybara.save_path = ENV.fetch('CAPYBARA_ARTIFACTS', './tmp/capybara')
+Capybara.save_path = ENV.fetch("CAPYBARA_ARTIFACTS", "./tmp/capybara")
 
 Capybara.singleton_class.prepend(
   Module.new do

@@ -1,0 +1,29 @@
+<li id=<%= @health_insurance_policy.id %> data-test-id="health-policy-component">
+  <div class="flex items-center px-4 py-4 sm:px-6">
+    <div class="min-w-0 flex-1 flex items-center">
+      <div class="flex-shrink-0">
+        <%= image_tag(@health_insurance_policy.insurer.logo_name, class: 'h-12 w-12 rounded') %>
+      </div>
+      <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+        <div class="ml-2 flex items-center">
+          <p class="font-medium truncate"><%= @health_insurance_policy.insurer.name %></p>
+        </div>
+        <div class="hidden md:block">
+          <div>
+            <p class="text-sm text-gray-900">
+              <%= @health_insurance_policy.product.name %>
+            </p>
+            <p class="mt-2 flex items-center text-sm text-gray-500">
+              <%= @health_insurance_policy.product_module_names.join(" + ") %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= link_to comparisons_health_insurance_policy_path(id: @health_insurance_policy.id), data: { turbo_method: :delete } do %>
+        <%= inline_svg('icons/trash_outline', class: 'h-6 w-6 text-gray-700') %>
+      <% end %>
+    </div>
+  </div>
+</li>

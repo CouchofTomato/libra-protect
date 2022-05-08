@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_131154) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_203616) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_131154) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "logo_name", default: "icons/office_building_outline.svg"
   end
 
   create_table "linked_product_modules", force: :cascade do |t|
