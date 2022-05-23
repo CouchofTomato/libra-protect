@@ -32,7 +32,7 @@ gem 'inline_svg'
 gem 'jsbundling-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'turbo-rails', '~> 1.0'
+gem 'turbo-rails', '~> 1.1'
 gem 'view_component', '~> 2.55'
 
 group :development, :test do
