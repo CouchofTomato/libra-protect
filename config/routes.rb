@@ -12,18 +12,22 @@ Rails.application.routes.draw do
       resources :medical_benefits
       resources :product_module_medical_benefits
 
-      root to: 'users#index'
+      root to: "users#index"
     end
-  devise_for :users, skip: [:registrations]
 
-  root 'dashboards#show'
+  devise_for :users, skip: [:registrations]
+  as :user do
+    get "users/edit" => "devise/registrations#edit",
+        :as => "edit_user_registration"
+    put "users" => "devise/registrations#update", :as => "user_registration"
+  end
+
+  root "dashboards#show"
 
   resource :dashboard, only: [:show]
-  resource :health_plan_comparisons, only: [:new, :create, :show]
+  resource :health_plan_comparisons, only: [:new, :show]
 
-  as :user do
-    get 'users/edit' => 'devise/registrations#edit',
-        :as => 'edit_user_registration'
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  namespace :comparisons do
+    resources :health_insurance_policies, only: [:create, :destroy]
   end
 end

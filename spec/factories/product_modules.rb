@@ -1,17 +1,17 @@
 FactoryBot.define do
   factory :product_module do
-    name { 'MyString' }
+    name { "MyString" }
     product
-    type { '' }
-    sum_assured { 'USD 1,000,000 | GBP 600,000 | EUR 750,000' }
+    type { "" }
+    sum_assured { "USD 1,000,000 | GBP 600,000 | EUR 750,000" }
     category { 0 }
 
     trait :core_product_module do
-      type { 'CoreProductModule' }
+      type { "CoreProductModule" }
     end
 
     trait :elective_product_module do
-      type { 'ElectiveProductModule' }
+      type { "ElectiveProductModule" }
     end
 
     initialize_with { type.present? ? type.constantize.new : ProductModule.new }

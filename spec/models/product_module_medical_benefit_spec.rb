@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ProductModuleMedicalBenefit, type: :model do
   subject(:product_module_medical_benefit) { create(:product_module_medical_benefit) }
@@ -17,7 +17,7 @@ RSpec.describe ProductModuleMedicalBenefit, type: :model do
       .with_values(paid_in_full: 0, capped: 1)
   end
 
-  it 'starts with a default value of 0 for the benefit_weighting attribute' do
+  it "starts with a default value of 0 for the benefit_weighting attribute" do
     expect(described_class.new.benefit_weighting).to eq 0
   end
 end
