@@ -10,6 +10,7 @@ class InsurerDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
+    logo_name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,7 +23,7 @@ class InsurerDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    created_at
+    logo_name
     updated_at
   ].freeze
 
@@ -31,7 +32,7 @@ class InsurerDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     name
-    created_at
+    logo_name
     updated_at
   ].freeze
 
@@ -40,6 +41,7 @@ class InsurerDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
+    logo_name
   ].freeze
 
   # COLLECTION_FILTERS

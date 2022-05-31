@@ -60,7 +60,7 @@ class LinkedProductModuleDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how linked product modules are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(linked_product_module)
-  #   "LinkedProductModule ##{linked_product_module.id}"
-  # end
+  def display_resource(linked_product_module)
+    "#{linked_product_module.core_product_module.name} : #{linked_product_module.elective_product_module.name}"
+  end
 end

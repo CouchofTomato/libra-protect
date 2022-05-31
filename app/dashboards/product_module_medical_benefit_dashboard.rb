@@ -27,8 +27,8 @@ class ProductModuleMedicalBenefitDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     product_module
     medical_benefit
-    id
     benefit_limit
+    benefit_limit_status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -70,7 +70,7 @@ class ProductModuleMedicalBenefitDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how product module medical benefits are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(product_module_medical_benefit)
-  #   "ProductModuleMedicalBenefit ##{product_module_medical_benefit.id}"
-  # end
+  def display_resource(product_module_medical_benefit)
+    "#{product_module_medical_benefit.product_module.name} : #{product_module_medical_benefit.medical_benefit.name}"
+  end
 end
