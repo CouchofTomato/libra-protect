@@ -16,6 +16,9 @@ class CoreProductModuleDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     type: Field::String,
+    category: Field::Select.with_options(searchable: false, collection: ->(field) {
+      field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    sum_assured: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,10 +29,10 @@ class CoreProductModuleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    product
-    product_module_medical_benefits
-    medical_benefits
-    linked_product_modules
+    name
+    sum_assured
+    category
+    id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,6 +46,8 @@ class CoreProductModuleDashboard < Administrate::BaseDashboard
     id
     name
     type
+    sum_assured
+    category
     created_at
     updated_at
   ].freeze
@@ -58,6 +63,8 @@ class CoreProductModuleDashboard < Administrate::BaseDashboard
     elective_product_modules
     name
     type
+    sum_assured
+    category
   ].freeze
 
   # COLLECTION_FILTERS
@@ -75,7 +82,7 @@ class CoreProductModuleDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how core product modules are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(core_product_module)
-  #   "CoreProductModule ##{core_product_module.id}"
-  # end
+  def display_resource(core_product_module)
+    core_product_module.name
+  end
 end

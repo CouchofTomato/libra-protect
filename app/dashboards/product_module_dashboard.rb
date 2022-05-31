@@ -30,7 +30,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
     name
     type
     sum_assured
-    id
+    category
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -76,7 +76,7 @@ class ProductModuleDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how product modules are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(product_module)
-  #   "ProductModule ##{product_module.id}"
-  # end
+  def display_resource(product_module)
+    product_module.name
+  end
 end
