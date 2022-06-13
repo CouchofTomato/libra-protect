@@ -8,6 +8,12 @@
           <%= render(HealthPolicyComparisonSelectionListComponent.with_collection(@comparison_health_policies)) %>
         </ul>
       </div>
+      <div class="flex justify-center">
+        <% if @comparison_health_policies.any? %>
+          <%= link_to "Compare", health_plan_comparisons_path, class: "inline-flex items-center px-1 py-1 mt-2 border border-transparent text-sm justify-center font-medium rounded-md 
+shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 w-11/12", data: { test_id: "compare-btn" } %>
+        <% end %>
+      </div>
     </section>
     <!-- Secondary column (hidden on smaller screens) -->
     <aside class="hidden lg:block lg:flex-shrink-0 lg:order-first">

@@ -1,0 +1,20 @@
+<div>
+  <div class="sm:hidden">
+    <label for="tabs" class="sr-only">Select a tab</label>
+    <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
+    <select id="tabs" name="tabs" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <% iterator.each do |element| %>
+        <option><%= element.titleize %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="hidden sm:block">
+    <div class="border-b border-gray-200">
+      <nav class="-mb-px flex flex-wrap space-x-4" aria-label="Tabs">
+        <% iterator.each do |element| %>
+          <a href="<%= health_plan_comparisons_path(tab: element) %>" class="<%= tab_classes(element) %> whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-test-id="<%= element %>-tab"><%= element.titleize %> </a>
+        <% end %>
+      </nav>
+    </div>
+  </div>
+</div>

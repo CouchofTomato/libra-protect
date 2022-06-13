@@ -1,0 +1,49 @@
+<%= render(DashboardMenuComponent.new) do %>
+  <main class="min-w-0 flex-1 border-t border-gray-200 lg:flex">
+    <!-- Primary column -->
+    <turbo-frame id="benefit-comparison">
+      <section aria-labelledby="primary-heading" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-first">
+        <h1 id="primary-heading" class="sr-only">Health Policy Comparison</h1>
+        <!-- Tab Menu -->
+        <%= render TabMenuComponent.new(iterator: @benefit_categories, selected_tab: @selected_tab) %>
+        <div class="p-4">
+          <table class="table-fixed divide-y divide-gray-300" id="<%= @selected_tab %>-comparison-table">
+            <thead>
+              <tr>
+                <th class="w-52"></th>
+                <% @comparison_health_policies.each do |policy| %>
+                  <th scope="col" class="w-52 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 md:pl-0">
+                    <div><%= policy.insurer.name %></div>
+                    <div><%= policy.product.name %></div>
+                    <div><%= policy.product_module_names.join(" + ") %></div>
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <% @grouped_benefits[@selected_tab]&.each do |benefit| %>
+                <tr>
+                  <td class="w-52 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0"><%= benefit.name %></td>
+                  <% @comparison_health_policies.each do |policy| %>
+                    <td class="w-52 py-4 px-3 text-sm text-gray-500">
+                      <%= render MedicalBenefitCoverageIconComponent.new(status: policy.product_module_medical_benefit(benefit.id).benefit_limit_status) %>
+                    </td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </turbo-frame>
+    <!-- Secondary column (hidden on smaller screens) -->
+    <aside class="hidden lg:block lg:flex-shrink-0 lg:order-last">
+      <div class="h-full relative flex flex-col w-64 border-r border-gray-200 overflow-y-auto">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+<% end %>

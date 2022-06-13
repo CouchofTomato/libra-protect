@@ -42,15 +42,23 @@ class HealthInsurancePolicy
   end
 
   def core_product_module
-    @core_product_module ||= product.core_product_modules.find_by(id: core_product_module_id)
+    @core_product_module ||= product.core_product_modules
+                                    .includes(product_module_medical_benefits: :medical_benefit)
+                                    .find_by(id: core_product_module_id)
   end
 
   def elective_product_modules
-    @elective_product_modules ||= core_product_module.elective_product_modules.where(id: elective_product_module_ids)
+    @elective_product_modules ||= core_product_module.elective_product_modules
+                                                     .includes(product_module_medical_benefits: :medical_benefit)
+                                                     .where(id: elective_product_module_ids)
+  end
+
+  def product_modules
+    [core_product_module].concat(elective_product_modules)
   end
 
   def product_module_names
-    core_product_module_name.concat(elective_product_module_names)
+    product_modules.map(&:name)
   end
 
   def to_h
@@ -63,13 +71,12 @@ class HealthInsurancePolicy
     }
   end
 
-  private
-
-  def core_product_module_name
-    [core_product_module.name]
+  def product_module_medical_benefits
+    product_modules.flat_map(&:product_module_medical_benefits)
   end
 
-  def elective_product_module_names
-    elective_product_modules.map(&:name)
+  def product_module_medical_benefit(benefit_id)
+    match = product_module_medical_benefits.find { |medical_benefit| medical_benefit.medical_benefit.id == benefit_id }
+    match || NullProductModuleMedicalBenefit.new
   end
 end

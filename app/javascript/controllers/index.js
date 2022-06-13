@@ -10,5 +10,8 @@ application.register("class-toggle", ClassToggleController)
 import ElementController from "./element_controller.js"
 application.register("element", ElementController)
 
+import RevealController from "./reveal_controller.js"
+application.register("reveal", RevealController)
+
 import TransitionController from "./transition_controller.js"
 application.register("transition", TransitionController)
