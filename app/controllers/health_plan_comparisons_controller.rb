@@ -6,6 +6,13 @@ class HealthPlanComparisonsController < ApplicationController
     @comparison_health_policies = comparison_health_insurance_policies
   end
 
+  def show
+    @comparison_health_policies = comparison_health_insurance_policies
+    @benefit_categories = MedicalBenefit.categories.keys
+    @grouped_benefits = MedicalBenefit.all.group_by(&:category)
+    @selected_tab = params[:tab] || "inpatient"
+  end
+
   private
 
   def reset_comparison_health_policies_session
