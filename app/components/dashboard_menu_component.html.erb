@@ -28,7 +28,7 @@
           data-action="class-toggle#switch"
         >
           <span class="sr-only">Close sidebar</span>
-          <%= inline_svg 'icons/close-button', class: 'h-6 w-6 text-white' %>
+          <%= inline_svg 'icons/close-button.svg', class: 'h-6 w-6 text-white' %>
         </button>
       </div>
 
@@ -44,13 +44,13 @@
           <%= link_to root_path, class: "group flex items-center rounded-md
           hover:bg-violet-200 px-2 py-2 text-base font-medium
           text-white", aria: { current: 'page' } do %> 
-            <%= inline_svg 'icons/home', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            <%= inline_svg 'icons/home.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             Home
           <% end %>
           <%= link_to new_health_plan_comparisons_path(new: true), class: "group flex items-center rounded-md
           hover:bg-violet-200 px-2 py-2 text-base font-medium
           text-white", aria: { current: 'page' } do %> 
-            <%= inline_svg 'icons/chart_bar_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            <%= inline_svg 'icons/chart_bar_outline.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             New Comparison
           <% end %>
         </div>
@@ -59,7 +59,7 @@
             <%= link_to destroy_user_session_path, method: :delete, class: "group flex items-center rounded-md
             hover:bg-violet-200 px-2 py-2 text-base font-medium
             text-white", aria: { current: 'page' } do %> 
-              <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+              <%= inline_svg 'icons/logout.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
               Sign Out
             <% end %>
           </div>
@@ -87,13 +87,13 @@
           <%= link_to root_path, class: "group flex items-center rounded-md
           hover:bg-violet-200 px-2 py-2 text-base font-medium
           text-white", aria: { current: 'page' } do %> 
-            <%= inline_svg 'icons/home', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            <%= inline_svg 'icons/home.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             Home
           <% end %>
           <%= link_to new_health_plan_comparisons_path(new: true), class: "group flex items-center rounded-md
           hover:bg-violet-200 px-2 py-2 text-base font-medium
           text-white", aria: { current: 'page' }, data: { test_id: 'health-comparison-link' } do %> 
-            <%= inline_svg 'icons/chart_bar_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            <%= inline_svg 'icons/chart_bar_outline.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             New Comparison
           <% end %>
         </div>
@@ -103,7 +103,7 @@
               <%= link_to admin_root_path, class: "group flex items-center rounded-md
               hover:bg-violet-200 px-2 py-2 text-base font-medium
               text-white", aria: { current: 'page' }, data: { test_id: 'admin-dashboard-link' } do %> 
-                <%= inline_svg 'icons/cog_outline', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+                <%= inline_svg 'icons/cog_outline.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
                 Admin
               <% end %>
             </div>
@@ -114,7 +114,7 @@
             <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class: "group flex items-center rounded-md
             hover:bg-violet-200 px-2 py-2 text-base font-medium
             text-white", aria: { current: 'page' } do %> 
-              <%= inline_svg 'icons/logout', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+              <%= inline_svg 'icons/logout.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
               Sign Out
             <% end %>
           </div>
@@ -132,7 +132,7 @@
         class="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
       >
         <span class="sr-only">Open sidebar</span>
-        <%= inline_svg 'icons/menu', class: 'h-6 w-6' %>
+        <%= inline_svg 'icons/menu.svg', class: 'h-6 w-6' %>
       </button>
     </div>
     <%= content %>
