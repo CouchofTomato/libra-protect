@@ -79,6 +79,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    administrate_exportable (0.6.0)
+      actionview (>= 5.2.2.1)
+      administrate (>= 0.17.0)
+      rails (>= 4.2)
+      railties (>= 5.2.2.1)
     ast (2.4.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
@@ -329,6 +334,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate!
+  administrate_exportable (~> 0.6.0)
   bootsnap (>= 1.4.4)
   byebug
   capybara

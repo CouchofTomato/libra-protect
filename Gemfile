@@ -25,6 +25,7 @@ gem "redis", "~> 4.0"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem "administrate", github: "n-studio/administrate", branch: "compile-assets"
+gem "administrate_exportable", "~> 0.6.0"
 gem "cssbundling-rails"
 gem "devise", "~> 4.8"
 gem "devise_invitable", "~> 2.0.0"
