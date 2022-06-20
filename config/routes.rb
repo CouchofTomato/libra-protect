@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   namespace :admin do
       resources :users
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
       resources :elective_product_modules
       resources :product_modules
       resources :linked_product_modules
-      resources :medical_benefits
+      resources :medical_benefits do
+        get :export, on: :collection
+      end
       resources :product_module_medical_benefits
 
       root to: "users#index"
@@ -31,3 +34,4 @@ Rails.application.routes.draw do
     resources :health_insurance_policies, only: [:create, :destroy]
   end
 end
+# rubocop:enable Metrics/BlockLength
