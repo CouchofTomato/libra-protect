@@ -1,8 +1,8 @@
 <%= render(DashboardMenuComponent.new) do %>
   <main class="min-w-0 flex-1 border-t border-gray-200 lg:flex">
     <!-- Primary column -->
-    <turbo-frame id="benefit-comparison">
-      <section aria-labelledby="primary-heading" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-first">
+    <turbo-frame id="benefit-comparison" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-first">
+      <section aria-labelledby="primary-heading">
         <h1 id="primary-heading" class="sr-only">Health Policy Comparison</h1>
         <!-- Tab Menu -->
         <%= render TabMenuComponent.new(iterator: @benefit_categories, selected_tab: @selected_tab) %>

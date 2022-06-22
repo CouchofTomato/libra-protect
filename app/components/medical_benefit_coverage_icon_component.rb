@@ -28,7 +28,7 @@ class MedicalBenefitCoverageIconComponent < ViewComponent::Base
   def coverage_colours
     {
       "paid_in_full" => "text-green-600",
-      "capped" => "text-green-600",
+      "capped" => "text-orange-600",
       "not_covered" => "text-red-600"
     }
   end

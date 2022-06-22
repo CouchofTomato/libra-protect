@@ -33,7 +33,7 @@ RSpec.describe MedicalBenefitCoverageIconComponent, type: :component do
     it "renders it in green" do
       render_inline(icon)
 
-      expect(page).to have_css ".text-green-600"
+      expect(page).to have_css ".text-orange-600"
     end
   end
 
