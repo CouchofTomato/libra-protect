@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Health Insurance Comparison Selection List" do
+RSpec.describe "Health Insurance Comparison Selection List", type: :system do
   let(:user) { create(:user, email: "dummy@libra.financial") }
 
   before do
