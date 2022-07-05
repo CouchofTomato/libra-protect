@@ -41,6 +41,12 @@
       <div class="h-full relative flex flex-col w-64 border-r border-gray-200 overflow-y-auto">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
           <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <div class="flex flex-col gap-x-2 items-center">
+              <h3>Export</h3>
+              <%= link_to health_plan_comparisons_path(format: :xlsx), target: '_blank' do %>
+                <%= inline_svg "icons/excel-logo.svg", class: "h-8 w-8" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

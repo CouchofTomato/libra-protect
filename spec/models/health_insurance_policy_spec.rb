@@ -92,7 +92,7 @@ RSpec.describe HealthInsurancePolicy, type: :model do
                                                       medical_benefit: medical_benefit)
             end
             create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
-product: product) do |elective_product_module|
+                                                              product: product) do |elective_product_module|
               create(:linked_product_module, core_product_module: core_product_module,
                                              elective_product_module: elective_product_module)
             end
@@ -138,7 +138,7 @@ product: product) do |elective_product_module|
                                                       medical_benefit: medical_benefit)
             end
             create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
-product: product) do |elective_product_module|
+                                                              product: product) do |elective_product_module|
               create(:linked_product_module, core_product_module: core_product_module,
                                              elective_product_module: elective_product_module)
             end
@@ -149,6 +149,45 @@ product: product) do |elective_product_module|
 
     it "maps the product module names into an array" do
       expect(health_insurance_policy.product_module_names).to eq ["Gold", "Evacuation"]
+    end
+  end
+
+  describe "#overall_sum_assured" do
+    subject(:health_insurance_policy) { described_class.new(params) }
+
+    let(:params) do
+      {
+        "insurer_id" => 1,
+        "product_id" => 2,
+        "core_product_module_id" => 1,
+        "elective_product_module_ids" => [2],
+        "id" => "1234"
+      }
+    end
+    let(:product_module_medical_benefit) { ProductModuleMedicalBenefit.find(1) }
+
+    before do
+      create(:insurer, id: 1) do |insurer|
+        create(:product, id: 2, insurer: insurer) do |product|
+          create(:product_module, :core_product_module, id: 1, sum_assured: "100", 
+product: product) do |core_product_module|
+            create(:medical_benefit, id: 1) do |medical_benefit|
+              create(:product_module_medical_benefit, id: 1,
+                                                      product_module: core_product_module,
+                                                      medical_benefit: medical_benefit)
+            end
+            create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
+                                                              product: product) do |elective_product_module|
+              create(:linked_product_module, core_product_module: core_product_module,
+                                             elective_product_module: elective_product_module)
+            end
+          end
+        end
+      end
+    end
+
+    it "returns the sum assured of the core product module" do
+      expect(health_insurance_policy.overall_sum_assured).to eq "100"
     end
   end
 end

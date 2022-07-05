@@ -11,6 +11,13 @@ class HealthPlanComparisonsController < ApplicationController
     @benefit_categories = MedicalBenefit.categories.keys
     @grouped_benefits = MedicalBenefit.all.group_by(&:category)
     @selected_tab = params[:tab] || "inpatient"
+
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers["Content-Disposition"] = 'attachment; filename="comparison.xlsx"'
+      end
+    end
   end
 
   private

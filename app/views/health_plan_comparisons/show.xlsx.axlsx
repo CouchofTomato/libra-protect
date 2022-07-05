@@ -1,0 +1,82 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+
+# styles
+center_text = { alignment: { horizontal: :center, vertical: :center, wrap_text: true } }
+
+benefit_coverage_styles = {
+  "paid_in_full" => wb.styles.add_style(bg_color: "7dcea0"),
+  "capped" => wb.styles.add_style(bg_color: "f0b27a"),
+  "not_covered" => wb.styles.add_style(bg_color: "ec7063")
+}
+
+benefit_category_styles = {
+  "inpatient" => wb.styles.add_style(bg_color: "b7ede6"),
+  "outpatient" => wb.styles.add_style(bg_color: "b7d7ed"),
+  "therapists" => wb.styles.add_style(bg_color: "b7bced"),
+  "medicines_and_appliances" => wb.styles.add_style(bg_color: "d3da6a"),
+  "wellness" => wb.styles.add_style(bg_color: "daa76a"),
+  "evacuation_and_repatriation" => wb.styles.add_style(bg_color: "e29bd1"),
+  "maternity" => wb.styles.add_style(bg_color: "a2b6a9"),
+  "dental" => wb.styles.add_style(bg_color: "c9e1fa"),
+  "optical" => wb.styles.add_style(bg_color: "fae7c9"),
+  "additional" => wb.styles.add_style(bg_color: "cac9fa")
+}
+
+comparison_product_headers = {
+  insurer_names: @comparison_health_policies.map { _1.insurer.name },
+  product_names:@comparison_health_policies.map{ _1.product.name },
+  product_modules_names: @comparison_health_policies.map { _1.product_module_names.join(" + ") },
+  overall_sums_assured: @comparison_health_policies.map(&:overall_sum_assured)
+}
+
+# rubocop:disable Metrics/BlockLength
+@benefit_categories.each do |category|
+  next unless @grouped_benefits[category]
+  wb.add_worksheet(name: category.titleize) do |sheet|
+    # headers
+    sheet.add_row [nil, nil, *comparison_product_headers.fetch(:insurer_names)]
+    sheet.add_row [nil, nil, *comparison_product_headers.fetch(:product_names)]
+    sheet.add_row [nil, nil, *comparison_product_headers.fetch(:product_modules_names)]
+    sheet.add_row [nil, nil, *comparison_product_headers.fetch(:overall_sums_assured)]
+
+    # benefits
+    category_colour = benefit_category_styles[category]
+    category_length = @grouped_benefits[category].length
+
+    @grouped_benefits[category].each do |benefit|
+      row_styles = [category_colour, category_colour]
+
+      selected_product_benefits = @comparison_health_policies.map do |policy|
+        matched_benefit = policy.product_module_medical_benefit(benefit.id)
+
+        row_styles << benefit_coverage_styles[matched_benefit.benefit_limit_status]
+
+        matched_benefit.benefit_limit
+      end
+
+      sheet.add_row [category.titleize, benefit.name.titleize, *selected_product_benefits], style: row_styles
+    end
+
+     # merge category cells
+    category_start_row = 5
+    category_end_row = category_start_row + category_length - 1
+    category_cells = "A#{category_start_row}:A#{category_end_row}"
+    sheet.merge_cells(category_cells)
+
+    # columns widths
+    number_of_selected_products = @comparison_health_policies.length
+    product_column_widths = Array.new(number_of_selected_products) { 40 }
+    sheet.column_widths 25, 25, *product_column_widths
+
+    # apply styles
+    last_col = Axlsx.col_ref(sheet.cols.size - 1)
+    sheet.add_style "A1:#{last_col}#{category_end_row}", center_text
+    sheet.add_style "A#{category_start_row}:#{last_col}#{category_end_row}",
+                    center_text,
+                    border: { style: :thin, color: "000000" }
+    sheet.add_style "C1:#{last_col}4", border: { style: :thin, color: "000000", edges: %i[left right] }, b: true
+  end
+end
+# rubocop:enable Metrics/BlockLength
