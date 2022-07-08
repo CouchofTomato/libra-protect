@@ -80,21 +80,26 @@ RSpec.describe HealthInsurancePolicy, type: :model do
         "id" => "1234"
       }
     end
-    let(:product_module_medical_benefit) { ProductModuleMedicalBenefit.find(1) }
+    let(:lower_weighted_product_module_medical_benefit) { ProductModuleMedicalBenefit.find(1) }
+    let(:higher_weighted_product_module_medical_benefit) { ProductModuleMedicalBenefit.find(2) }
 
     before do
       create(:insurer, id: 1) do |insurer|
         create(:product, id: 2, insurer: insurer) do |product|
-          create(:product_module, :core_product_module, id: 1, product: product) do |core_product_module|
-            create(:medical_benefit, id: 1) do |medical_benefit|
+          create(:medical_benefit, id: 1) do |medical_benefit|
+            create(:product_module, :core_product_module, id: 1, product: product) do |core_product_module|
               create(:product_module_medical_benefit, id: 1,
                                                       product_module: core_product_module,
                                                       medical_benefit: medical_benefit)
-            end
-            create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
-                                                              product: product) do |elective_product_module|
-              create(:linked_product_module, core_product_module: core_product_module,
-                                             elective_product_module: elective_product_module)
+              create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
+                                                                product: product) do |elective_product_module|
+                create(:product_module_medical_benefit, id: 2,
+                                                        benefit_weighting: 1,
+                                                        product_module: elective_product_module,
+                                                        medical_benefit: medical_benefit)
+                create(:linked_product_module, core_product_module: core_product_module,
+                                              elective_product_module: elective_product_module)
+              end
             end
           end
         end
@@ -103,7 +108,8 @@ RSpec.describe HealthInsurancePolicy, type: :model do
 
     context "when the health insurance policy does cover the benefit" do
       it "returns the matching ProductModuleMedicalBenefit" do
-        expect(health_insurance_policy.product_module_medical_benefit(1)).to eq product_module_medical_benefit
+        expect(health_insurance_policy.product_module_medical_benefit(1))
+          .to eq higher_weighted_product_module_medical_benefit
       end
     end
 
