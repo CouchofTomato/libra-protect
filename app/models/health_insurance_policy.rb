@@ -76,11 +76,21 @@ class HealthInsurancePolicy
   end
 
   def product_module_medical_benefit(benefit_id)
-    match = product_module_medical_benefits.find { |medical_benefit| medical_benefit.medical_benefit.id == benefit_id }
-    match || NullProductModuleMedicalBenefit.new
+    match = matching_benefits(benefit_id)
+    if match.any?
+      match.max_by(&:benefit_weighting)
+    else
+      NullProductModuleMedicalBenefit.new
+    end
   end
 
   def overall_sum_assured
     core_product_module.sum_assured
+  end
+
+  private
+
+  def matching_benefits(benefit_id)
+    product_module_medical_benefits.select { |medical_benefit| medical_benefit.medical_benefit.id == benefit_id }
   end
 end
