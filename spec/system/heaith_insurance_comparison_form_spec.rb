@@ -21,13 +21,15 @@ RSpec.describe "Health Insurance Comparison Form" do
   end
 
   it "does not display the product select if an insurer has been selected" do
-    expect(page).not_to have_selector("select[data-test-id='product-select-field']")
+    expect(page).not_to have_select("select[data-test-id='product-select-field']")
   end
 
   it "displays the product select if an insurer has been selected" do
     find(:test_id, "insurer-select-field").select("BUPA Global")
 
-    expect(page).to have_selector("select[data-test-id='product-select-field']")
+    expect(page).to have_select do |select|
+      select.has_selector? "select[data-test-id='product-select-field']"
+    end
   end
 
   it "does not display the core product module radio buttons if a product has not been selected" do

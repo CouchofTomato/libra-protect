@@ -39,7 +39,7 @@ RSpec.describe "Admin Dashboard Access", type: :system do
     it "does not show them the link to the admin section in the dashboard menu" do
       visit root_path
 
-      expect(page).not_to have_selector("a[data-test-id='admin-dashboard-link']")
+      expect(page).not_to have_link("a[data-test-id='admin-dashboard-link']")
     end
 
     it "shows the user a warning message" do

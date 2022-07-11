@@ -9,19 +9,23 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "renders the primary button type classes" do
       render_inline(button_component)
 
-      expect(rendered_component).to have_css ".bg-orange-600"
+      expect(page).to have_css ".bg-orange-600"
     end
 
     it "has a blank formmethod" do
       render_inline(button_component)
 
-      expect(rendered_component).to have_css "button[formmethod='']"
+      expect(page).to have_button do |button|
+        button.has_selector? "button[formmethod='']"
+      end
     end
 
     it "has a blank formaction" do
       render_inline(button_component)
 
-      expect(rendered_component).to have_css "button[formaction='']"
+      expect(page).to have_button do |button|
+        button.has_selector? "button[formaction='']"
+      end
     end
   end
 
@@ -33,7 +37,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "renders the secondary button type classes" do
       render_inline(button_component)
 
-      expect(rendered_component).to have_css ".bg-persian-blue-50"
+      expect(page).to have_css ".bg-persian-blue-50"
     end
   end
 
@@ -45,7 +49,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "renders with the full width class" do
       render_inline(button_component)
 
-      expect(rendered_component).to have_css ".w-full"
+      expect(page).to have_css ".w-full"
     end
   end
 
@@ -55,7 +59,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "does not add the full width class" do
       render_inline(button_component)
 
-      expect(rendered_component).not_to have_css ".w-full"
+      expect(page).not_to have_css ".w-full"
     end
   end
 
@@ -67,7 +71,9 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "renders a div with the data attributes parsed to be html valid" do 
       render_inline(button_component)
   
-      expect(rendered_component).to have_css("button[data-controller='navbar'][data-navbar-target='menu-state']")
+      expect(page).to have_button do |button|
+        button.has_selector?("button[data-controller='navbar'][data-navbar-target='menu-state']")
+      end
     end
   end
 end
