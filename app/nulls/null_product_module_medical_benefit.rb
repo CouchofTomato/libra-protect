@@ -6,4 +6,8 @@ class NullProductModuleMedicalBenefit
   def benefit_limit
     "Not Covered"
   end
+
+  def combined_limits
+    ""
+  end
 end

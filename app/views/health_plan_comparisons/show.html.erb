@@ -43,9 +43,16 @@
           <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <div class="flex flex-col gap-x-2 items-center">
               <h3>Export</h3>
-              <%= link_to health_plan_comparisons_path(format: :xlsx), target: '_blank' do %>
-                <%= inline_svg "icons/excel-logo.svg", class: "h-8 w-8" %>
-              <% end %>
+              <div class="mt-3">
+                <%= form_with url: health_plan_comparisons_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder do |form| %>
+                  <div class="mt-3 flex space-x-2">
+                    <%= form.check_box :combined_limits %>
+                    <%= form.label :combined_limits %>
+                  </div>
+                  <div class="mt-3 flex justify-center">
+                    <%= image_submit_tag "icons/excel-logo.svg", class: 'h-8 w-8', formaction: health_plan_comparisons_path(format: :xlsx) %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
