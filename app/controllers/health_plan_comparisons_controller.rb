@@ -1,5 +1,6 @@
 class HealthPlanComparisonsController < ApplicationController
   before_action :reset_comparison_health_policies_session, only: [:new]
+  before_action :set_combined_limits_boolean, only: [:show]
 
   def new
     @health_insurance_policy = create_health_insurance_policy
@@ -46,5 +47,9 @@ class HealthPlanComparisonsController < ApplicationController
 
   def comparison_health_policies
     session[:comparison_health_policies] ||= []
+  end
+
+  def set_combined_limits_boolean
+    @combined_limits = params[:combined_limits] == "1"
   end
 end

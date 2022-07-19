@@ -15,6 +15,7 @@ class ProductModuleMedicalBenefitDashboard < Administrate::BaseDashboard
     benefit_limit_status: Field::Select.with_options(searchable: false, collection: ->(field) {
  field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     benefit_weighting: Field::Number,
+    combined_limits: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -40,6 +41,7 @@ class ProductModuleMedicalBenefitDashboard < Administrate::BaseDashboard
     benefit_limit
     benefit_limit_status
     benefit_weighting
+    combined_limits
     created_at
     updated_at
   ].freeze
@@ -53,6 +55,7 @@ class ProductModuleMedicalBenefitDashboard < Administrate::BaseDashboard
     benefit_limit
     benefit_limit_status
     benefit_weighting
+    combined_limits
   ].freeze
 
   # COLLECTION_FILTERS

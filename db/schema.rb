@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_08_203616) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_13_133205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_203616) do
     t.integer "benefit_weighting", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "combined_limits"
     t.index ["medical_benefit_id"], name: "index_product_module_medical_benefits_on_medical_benefit_id"
     t.index ["product_module_id", "medical_benefit_id"], name: "index_product_module_benefits_on_product_module_and_benefit", unique: true
     t.index ["product_module_id"], name: "index_product_module_medical_benefits_on_product_module_id"
@@ -102,14 +103,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_203616) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "invitation_token"
-    t.datetime "invitation_created_at"
-    t.datetime "invitation_sent_at"
-    t.datetime "invitation_accepted_at"
+    t.datetime "invitation_created_at", precision: nil
+    t.datetime "invitation_sent_at", precision: nil
+    t.datetime "invitation_accepted_at", precision: nil
     t.integer "invitation_limit"
     t.string "invited_by_type"
     t.bigint "invited_by_id"

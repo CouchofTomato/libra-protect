@@ -52,8 +52,12 @@ comparison_product_headers = {
         matched_benefit = policy.product_module_medical_benefit(benefit.id)
 
         row_styles << benefit_coverage_styles[matched_benefit.benefit_limit_status]
-
-        matched_benefit.benefit_limit
+        
+        if @combined_limits
+          "#{matched_benefit.benefit_limit}\n\n#{matched_benefit.combined_limits}"
+        else
+          matched_benefit.benefit_limit
+        end
       end
 
       sheet.add_row [category.titleize, benefit.name.titleize, *selected_product_benefits], style: row_styles
