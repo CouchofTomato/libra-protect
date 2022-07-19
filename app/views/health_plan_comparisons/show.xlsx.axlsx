@@ -54,7 +54,7 @@ comparison_product_headers = {
         row_styles << benefit_coverage_styles[matched_benefit.benefit_limit_status]
         
         if @combined_limits
-          "#{matched_benefit.benefit_limit}\n\n#{matched_benefit.combined_limits}"
+          "#{matched_benefit.benefit_limit}\n\n#{matched_benefit.combined_limits}".strip
         else
           matched_benefit.benefit_limit
         end
