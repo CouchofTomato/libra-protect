@@ -37,7 +37,7 @@ gem "jsbundling-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails", "~> 1.1"
-gem "view_component", "~> 2.59"
+gem "view_component", "~> 2.62"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
