@@ -10,13 +10,13 @@ RSpec.describe TemporaryNotificationComponent, type: :component do
     it "renders the x_circle_outline alert svg" do
       render_inline(temporary_notification)
 
-      expect(rendered_component).to have_selector("svg[data-test-id='x-circle-outline']")
+      expect(page).to have_selector("svg[data-test-id='x-circle-outline']")
     end
 
     it "renders the alert css" do
       render_inline(temporary_notification)
 
-      expect(rendered_component).to have_css ".text-red-400"
+      expect(page).to have_css ".text-red-400"
     end
   end
 
@@ -27,13 +27,13 @@ RSpec.describe TemporaryNotificationComponent, type: :component do
     it "renders the check_circle_outline svg" do
       render_inline(temporary_notification)
 
-      expect(rendered_component).to have_selector("svg[data-test-id='check-circle-outline']")
+      expect(page).to have_selector("svg[data-test-id='check-circle-outline']")
     end
 
     it "renders the alert css" do
       render_inline(temporary_notification)
 
-      expect(rendered_component).to have_css ".text-green-400"
+      expect(page).to have_css ".text-green-400"
     end
   end
 end
