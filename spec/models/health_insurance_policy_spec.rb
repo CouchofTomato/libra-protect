@@ -1,6 +1,22 @@
 require "rails_helper"
 
 RSpec.describe HealthInsurancePolicy, type: :model do
+  subject(:health_insurance_policy) { described_class.new(params) }
+
+  let(:params) do
+    {
+      "insurer_id" => 1,
+      "product_id" => 2,
+      "core_product_module_id" => 1,
+      "elective_product_module_ids" => [1, 2],
+      "id" => "123"
+    }
+  end
+
+  it { expect(health_insurance_policy).to validate_presence_of(:insurer_id) }
+  it { expect(health_insurance_policy).to validate_presence_of(:product_id) }
+  it { expect(health_insurance_policy).to validate_presence_of(:core_product_module_id) }
+  
   describe ".from_elective_module_ids_hash" do
     let(:params) do
       {
