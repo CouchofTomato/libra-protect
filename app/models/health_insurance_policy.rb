@@ -5,12 +5,16 @@ class HealthInsurancePolicy
 
   attr_accessor :insurer_id, :product_id, :core_product_module_id, :elective_product_module_ids, :id
 
+  validates :insurer_id, presence: true
+  validates :product_id, presence: true
+  validates :core_product_module_id, presence: true
+
   class << self
     def from_elective_module_ids_hash(params)
       new(
-        insurer_id: params["insurer_id"].to_i,
-        product_id: params["product_id"].to_i,
-        core_product_module_id: params["core_product_module_id"].to_i,
+        insurer_id: params["insurer_id"],
+        product_id: params["product_id"],
+        core_product_module_id: params["core_product_module_id"],
         elective_product_module_ids: elective_ids_from_hash(params["elective_product_module_ids"]),
         id: params["id"]
       )
