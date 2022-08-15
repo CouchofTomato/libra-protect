@@ -41,10 +41,10 @@
     <% end %>
     <% if core_product_modules_viewable %>
       <div class="mt-3" data-controller="element" data-test-id="core-product-module-fields">
-        <%= f.label :core_product_module_id, class: 'text-base font-medium text-gray-900' %>
+        <%= f.label :core_product_module_id, "Core Product Module", class: 'text-base font-medium text-gray-900' %>
         <fieldset class="mt-4">
           <legend class="sr-only">Core Product Module selection</legend>
-          <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+          <div class="space-y-4 sm:flex sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4 sm:space-y-0">
             <%= f.collection_radio_buttons :core_product_module_id, @health_insurance_policy.product.core_product_modules, :id, :name do |radio_button| %>
               <div class="flex items-center">
                 <%= radio_button.radio_button(data: { action: 'change->element#click' }) %>
@@ -69,12 +69,12 @@
     <% end %>
     <% if elective_product_modules_viewable %>
       <div class="mt-3" data-test-id="elective-product-modules-fields">
-        <%= f.label :elective_product_module_ids, class: 'text-base font-medium text-gray-900' %>
+        <%= f.label :elective_product_module_ids, "Elective Product Modules", class: 'text-base font-medium text-gray-900' %>
         <% active_elective_product_module_categories.each do |category| %>
-          <div class="mt-2"><%= f.label category, class: 'text-base font-medium text-gray-900' %></div>
+          <div class="mt-2"><%= f.label category, class: 'text-sm font-medium text-gray-900' %></div>
           <fieldset class="mt-4">
             <legend class="sr-only"><%= "#{category} elective product module selection" %></legend>
-            <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+            <div class="space-y-4 sm:flex sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4 sm:space-y-0">
               <%= collection_radio_buttons nil, "health_insurance_policy[elective_product_module_ids][#{category}]", @health_insurance_policy.core_product_module.elective_product_modules.group_by(&:category)[category], :id, :name do |radio_button| %>
                 <div class="flex items-center">
                   <%= radio_button.radio_button(checked: selected_elective_product_module(radio_button.value)) %>
