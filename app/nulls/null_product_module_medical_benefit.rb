@@ -10,4 +10,8 @@ class NullProductModuleMedicalBenefit
   def combined_limits
     ""
   end
+
+  def product_module
+    NullProductModule.new
+  end
 end
