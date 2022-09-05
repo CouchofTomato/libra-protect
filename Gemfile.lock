@@ -79,7 +79,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    administrate_exportable (0.6.0)
+    administrate_exportable (0.6.1)
       actionview (>= 5.2.2.1)
       administrate (>= 0.17.0)
       rails (>= 4.2)
@@ -131,7 +131,7 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     docile (1.4.0)
-    erubi (1.10.0)
+    erubi (1.11.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -317,7 +317,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
-    strscan (3.0.3)
+    strscan (3.0.4)
     thor (1.2.1)
     timeout (0.3.0)
     turbo-rails (1.1.1)
@@ -354,7 +354,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate!
-  administrate_exportable (~> 0.6.0)
+  administrate_exportable (~> 0.6.1)
   axlsx_styler (~> 1.1)
   bootsnap (>= 1.4.4)
   byebug
