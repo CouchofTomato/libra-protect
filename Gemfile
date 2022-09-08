@@ -25,7 +25,7 @@ gem "redis", "~> 4.8"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem "administrate", github: "n-studio/administrate", branch: "compile-assets"
-gem "administrate_exportable", "~> 0.6.0"
+gem "administrate_exportable", "~> 0.6.1"
 gem "axlsx_styler", "~> 1.1"
 gem "caxlsx", "~> 3.2"
 gem "caxlsx_rails", "~> 0.6.3"
