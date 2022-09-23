@@ -7,7 +7,7 @@ class ProductModule < ApplicationRecord
   has_many :medical_benefits, through: :product_module_medical_benefits
 
   enum category: { core: 0, outpatient: 1, medicines_and_appliances: 2, wellness: 3,
-    maternity: 4, dental_and_optical: 5, evacuation_and_repatriation: 6 }
+    maternity: 4, dental_and_optical: 5, evacuation_and_repatriation: 6, travel: 7 }
 
   validates :name, presence: true, uniqueness: { scope: %i[product_id], case_sensitive: false }
   validates :type, presence: true
