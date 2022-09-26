@@ -38,7 +38,7 @@ gem "jsbundling-rails"
 gem "redis-session-store", "~> 0.11.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
-gem "turbo-rails", "~> 1.1"
+gem "turbo-rails", "~> 1.3"
 gem "view_component", "~> 2.72"
 
 group :development, :test do
