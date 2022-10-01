@@ -4,6 +4,16 @@
 
 require "factory_bot_rails"
 
+#---------DELETE ALL MODELS---------#
+
+LinkedProductModule.delete_all
+ProductModuleMedicalBenefit.delete_all
+ProductModule.delete_all
+User.delete_all
+Product.delete_all
+Insurer.delete_all
+MedicalBenefit.delete_all
+
 #---------USERS---------#
 
 # Admin User
@@ -182,15 +192,18 @@ FactoryBot.create(:insurer, name: "BUPA Global", logo_name: "bupa_global_logo.pn
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Physiotherapy"),
                                               benefit_limit: "Paid in full for up to 30 visits each membership year",
                                               benefit_limit_status: "capped",
-                                              product_module: product_module)
+                                              product_module: product_module,
+                                              combined_limits: '30 visits combined therapies')
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Osteopathy"),
                                               benefit_limit: "Paid in full for up to 30 visits each membership year",
                                               benefit_limit_status: "capped",
-                                              product_module: product_module)
+                                              product_module: product_module,
+                                              combined_limits: '30 visits combined therapies')
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Chiropractor"),
                                               benefit_limit: "Paid in full for up to 30 visits each membership year",
                                               benefit_limit_status: "capped",
-                                              product_module: product_module)
+                                              product_module: product_module,
+                                              combined_limits: '30 visits combined therapies')
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Occupational Therapy"),
                                               benefit_limit: "Paid in full for up to 15 visits each membership year",
                                               benefit_limit_status: "capped",
