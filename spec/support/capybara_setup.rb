@@ -1,11 +1,11 @@
-Capybara.default_max_wait_time = 2
+Capybara.default_max_wait_time = 10
 
 # Normalize whitespaces when using `has_text?` and similar matchers,
 # i.e., ignore newlines, trailing spaces, etc.
 # That makes tests less dependent on slightly UI changes.
 Capybara.default_normalize_ws = true
 
-Capybara.save_path = ENV.fetch("CAPYBARA_ARTIFACTS", "./tmp/capybara")
+Capybara.save_path = File.expand_path(ENV.fetch('CAPYBARA_ARTIFACTS', './tmp/capybara'))
 
 Capybara.singleton_class.prepend(
   Module.new do
