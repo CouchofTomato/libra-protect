@@ -24,6 +24,7 @@ gem "redis", "~> 4.8"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
+gem 'acts-as-taggable-on', '~> 9.0'
 gem "administrate", github: "n-studio/administrate", branch: "compile-assets"
 gem "administrate_exportable", "~> 0.6.1"
 gem "axlsx_styler", "~> 1.2"
