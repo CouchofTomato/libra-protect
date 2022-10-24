@@ -85,9 +85,9 @@ GEM
       rails (>= 4.2)
       railties (>= 5.2.2.1)
     ast (2.4.2)
-    axlsx_styler (1.1.0)
+    axlsx_styler (1.2.0)
       activesupport (>= 3.1)
-      caxlsx (>= 2.0.2)
+      caxlsx (>= 2.0.2, < 3.3.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -200,7 +200,7 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.8-x86_64-linux)
+    nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
@@ -355,7 +355,7 @@ PLATFORMS
 DEPENDENCIES
   administrate!
   administrate_exportable (~> 0.6.1)
-  axlsx_styler (~> 1.1)
+  axlsx_styler (~> 1.2)
   bootsnap (>= 1.4.4)
   byebug
   capybara
