@@ -18,6 +18,7 @@ class ElectiveProductModuleDashboard < Administrate::BaseDashboard
     type: Field::String,
     category: Field::Select.with_options(searchable: false, collection: ->(field) {
       field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    coverage_category_list: Field::String,
     sum_assured: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -48,6 +49,7 @@ class ElectiveProductModuleDashboard < Administrate::BaseDashboard
     type
     sum_assured
     category
+    coverage_category_list
     created_at
     updated_at
   ].freeze
@@ -65,6 +67,7 @@ class ElectiveProductModuleDashboard < Administrate::BaseDashboard
     type
     sum_assured
     category
+    coverage_category_list
   ].freeze
 
   # COLLECTION_FILTERS

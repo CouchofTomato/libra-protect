@@ -109,6 +109,8 @@ FactoryBot.create(:medical_benefit, name: "Out of Area Cover", category: "additi
 FactoryBot.create(:insurer, name: "BUPA Global", logo_name: "bupa_global_logo.png") do |insurer|
   FactoryBot.create(:product, name: "Lifeline", insurer: insurer) do |product|
     FactoryBot.create(:product_module, :core_product_module, product: product, name: "Gold", sum_assured: "Unlimited", category: :core) do |product_module|
+      product_module.coverage_category_list = "inpatient, outpatient, therapists, medicines_and_appliances, wellness, maternity"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Hospital Accomodation"),
                                               benefit_limit: "Paid in full",
                                               benefit_limit_status: "paid_in_full",
@@ -318,6 +320,8 @@ FactoryBot.create(:insurer, name: "BUPA Global", logo_name: "bupa_global_logo.pn
                                               product_module: product_module)
     end
     FactoryBot.create(:product_module, :elective_product_module, product: product, name: "Evacuation", sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do |product_module|
+      product_module.coverage_category_list = "evacuation"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Evacuation Transport Costs to Nearest Country"),
                                               benefit_limit: "Paid in full",
                                               benefit_limit_status: "paid_in_full",
@@ -336,6 +340,8 @@ FactoryBot.create(:insurer, name: "BUPA Global", logo_name: "bupa_global_logo.pn
                                               product_module: product_module)
     end
     FactoryBot.create(:product_module, :elective_product_module, product: product, name: "Repatriation", sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do |product_module|
+      product_module.coverage_category_list = "repatriation"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Evacuation Transport Costs to Nearest Country"),
                                               benefit_limit: "Paid in full",
                                               benefit_limit_status: "paid_in_full",
@@ -368,6 +374,8 @@ end
 FactoryBot.create(:insurer, name: "Cigna Global", logo_name: "cigna_worldwide_logo.png") do |insurer|
   FactoryBot.create(:product, name: "Health Options", insurer: insurer) do |product|
     FactoryBot.create(:product_module, :core_product_module, product: product, name: "Platinum Inpatient", sum_assured: "Unlimited", category: :core) do |product_module|
+      product_module.coverage_category_list = "inpatient, maternity"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Hospital Accomodation"),
                                               benefit_limit: "Paid in full",
                                               benefit_limit_status: "paid_in_full",
@@ -475,6 +483,8 @@ FactoryBot.create(:insurer, name: "Cigna Global", logo_name: "cigna_worldwide_lo
       
     end
     FactoryBot.create(:product_module, :elective_product_module, product: product, name: "Platinum Outpatient", sum_assured: "Within Overall Limit", category: :outpatient) do |product_module|
+      product_module.coverage_category_list = "outpatient, therapists, medicines_and_appliances"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Consultants Fees"),
                                               benefit_limit: "Paid in full",
                                               benefit_limit_status: "paid_in_full",
@@ -529,6 +539,8 @@ FactoryBot.create(:insurer, name: "Cigna Global", logo_name: "cigna_worldwide_lo
                                               product_module: product_module)
     end
     FactoryBot.create(:product_module, :elective_product_module, product: product, name: "Platinum International Evacuation and Crisis Assistance Plus", sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do |product_module|
+      product_module.coverage_category_list = "evacuation, repatriation"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Evacuation Transport Costs to Nearest Country"),
                                               benefit_limit: "Paid in full",
                                               benefit_limit_status: "paid_in_full",
@@ -551,12 +563,15 @@ FactoryBot.create(:insurer, name: "Cigna Global", logo_name: "cigna_worldwide_lo
                                               product_module: product_module)
     end
     FactoryBot.create(:product_module, :elective_product_module, product: product, name: "Platinum International Health and Wellbeing", sum_assured: "Within Overall Limit", category: :wellness) do |product_module|
+      product_module.coverage_category_list = "wellness"
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Health Screening and Wellness Checks"),
                                               benefit_limit: "USD 600 | GBP 400 | EUR 440 each membership year",
                                               benefit_limit_status: "capped",
                                               product_module: product_module)
     end
     FactoryBot.create(:product_module, :elective_product_module, product: product, name: "Platinum International Vision and Dental", sum_assured: "Within Overall Limit", category: :dental_and_optical) do |product_module|
+      product_module.coverage_category_list = "optical, dental"
+      product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Preventative"),
                                               benefit_limit: "USD 5,500 | GBP 3,500 | EUR 4,300 each membership year",
                                               benefit_limit_status: "capped",

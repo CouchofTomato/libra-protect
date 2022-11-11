@@ -24,4 +24,14 @@ shared_examples "A ProductModule class" do
   it "validates the presence of type" do
     expect(subject).to validate_presence_of(:type)
   end
+
+  it "doesn't allow invalid coverage categories" do
+    subject.coverage_category_list.add("invalid")
+    expect(subject).to be_invalid
+  end
+
+  it "allows valid coverage categories" do
+    subject.coverage_category_list.add("inpatient")
+    expect(subject).to be_valid
+  end
 end
