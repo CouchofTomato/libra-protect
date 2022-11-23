@@ -2,11 +2,6 @@ class HealthPlanComparisonsController < ApplicationController
   before_action :reset_comparison_health_policies_session, only: [:new]
   before_action :set_benefit_view_options, only: [:show]
 
-  def new
-    @health_insurance_policy = create_health_insurance_policy
-    @comparison_health_policies = comparison_health_insurance_policies
-  end
-
   def show
     @comparison_health_policies = comparison_health_insurance_policies
     @benefit_categories = MedicalBenefit.categories.keys
@@ -20,6 +15,11 @@ class HealthPlanComparisonsController < ApplicationController
       end
     end
   end
+  def new
+    @health_insurance_policy = create_health_insurance_policy
+    @comparison_health_policies = comparison_health_insurance_policies
+  end
+
 
   private
 
