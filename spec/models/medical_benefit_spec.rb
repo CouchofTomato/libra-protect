@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe MedicalBenefit, type: :model do
+RSpec.describe MedicalBenefit do
   subject(:medical_benefit) { create(:medical_benefit) }
 
   # Validations

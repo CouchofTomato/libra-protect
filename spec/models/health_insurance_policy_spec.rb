@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe HealthInsurancePolicy, type: :model do
+RSpec.describe HealthInsurancePolicy do
   subject(:health_insurance_policy) { described_class.new(params) }
 
   let(:params) do
