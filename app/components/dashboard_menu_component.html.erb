@@ -96,6 +96,12 @@
             <%= inline_svg 'icons/chart_bar_outline.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
             New Comparison
           <% end %>
+          <%= link_to new_recommendations_path, class: "group flex items-center rounded-md
+          hover:bg-violet-200 px-2 py-2 text-base font-medium
+          text-white", aria: { current: 'page' } do %> 
+            <%= inline_svg 'icons/chart_bar_outline.svg', class: 'mr-4 h-6 w-6 flex-shrink-0 text-orange-500' %>
+            New Recommendation
+          <% end %>
         </div>
         <% if current_user.admin? %>
           <div class="mt-6 pt-6">

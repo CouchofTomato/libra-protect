@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   namespace :admin do
       resources :users
@@ -31,4 +32,7 @@ Rails.application.routes.draw do
   namespace :comparisons do
     resource :individual_international_health_insurances, only: [:show, :new, :create, :destroy]
   end
+
+  resource :recommendations, only: [:show, :new, :create]
 end
+# rubocop:enable Metrics/BlockLength
