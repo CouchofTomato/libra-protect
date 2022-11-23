@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe LinkedProductModule, type: :model do
+RSpec.describe LinkedProductModule do
   subject(:linked_product_module) { create(:linked_product_module) }
 
   # Assocations

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Admin Dashboard Access", type: :system do
+RSpec.describe "Admin Dashboard Access" do
   context "when the current logged in user is an admin" do
     let(:admin_user) { create(:admin_user) }
 

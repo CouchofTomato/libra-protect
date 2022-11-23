@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ProductModuleMedicalBenefit, type: :model do
+RSpec.describe ProductModuleMedicalBenefit do
   subject(:product_module_medical_benefit) { create(:product_module_medical_benefit) }
 
   # Associations

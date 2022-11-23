@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Insurer, type: :model do
+RSpec.describe Insurer do
   subject(:insurer) { create(:insurer) }
 
   it { expect(insurer).to have_many(:products).dependent(:destroy) }
