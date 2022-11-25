@@ -56,7 +56,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL")}
+  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("$REDIS_URL")}
 
   config.session_store :redis_session_store,
     key: "_session_production",
@@ -66,7 +66,7 @@ Rails.application.configure do
       expire_after: 1.year,
       ttl: 1.year,
       key_prefix: "app:session:",
-      url: ENV.fetch("REDIS_URL")
+      url: ENV.fetch("$REDIS_URL")
     }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
