@@ -56,15 +56,13 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL", nil)}
+  config.cache_store = :redis_cache_store, {url: ENV.fetch("REDIS_URL", nil)}
 
   config.session_store :redis_session_store,
     key: "_session_production",
     serializer: :json,
     redis: {
-      driver: :hiredis,
       expire_after: 1.year,
-      ttl: 1.year,
       key_prefix: "app:session:",
       url: ENV.fetch("REDIS_URL", nil)
     }

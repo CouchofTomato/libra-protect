@@ -147,7 +147,6 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    hiredis (0.6.3)
     htmlentities (4.3.4)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -373,7 +372,6 @@ DEPENDENCIES
   devise (~> 4.8)
   devise_invitable (~> 2.0.0)
   factory_bot_rails (~> 6.2)
-  hiredis (~> 0.6.3)
   inline_svg
   jbuilder (~> 2.11)
   jsbundling-rails
