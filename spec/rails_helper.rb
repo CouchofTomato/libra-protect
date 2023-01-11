@@ -36,7 +36,7 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # rubocop:disable Rails/FilePath
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{Rails.root}/spec/fixtures"
   # rubocop:enable Rails/FilePath
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
