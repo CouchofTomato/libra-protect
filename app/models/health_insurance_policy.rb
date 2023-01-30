@@ -67,11 +67,11 @@ class HealthInsurancePolicy
 
   def to_h
     {
-      id: id,
-      insurer_id: insurer_id,
-      product_id: product_id,
-      core_product_module_id: core_product_module_id,
-      elective_product_module_ids: elective_product_module_ids
+      id:,
+      insurer_id:,
+      product_id:,
+      core_product_module_id:,
+      elective_product_module_ids:
     }
   end
 

@@ -19,56 +19,56 @@ category: "evacuation_and_repatriation")
     create(:medical_benefit, name: "Repatriation of Mortal Remains", category: "evacuation_and_repatriation")
     
     create(:insurer, name: "BUPA Global") do |insurer|
-      create(:product, name: "Lifeline", insurer: insurer) do |product|
-        create(:product_module, :core_product_module, product: product, name: "Gold", sum_assured: "Unlimited", 
+      create(:product, name: "Lifeline", insurer:) do |product|
+        create(:product_module, :core_product_module, product:, name: "Gold", sum_assured: "Unlimited", 
 category: :core) do |product_module|
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Hospital Accomodation"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Intensive Care"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Mental Health Treatment"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Outpatient Surgical Operations"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Qualified Nurse Treatment"),
                                                   benefit_limit: "Paid in full for up to 15 visits each membership year",
                                                   benefit_limit_status: "capped",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Physiotherapy"),
                                                   benefit_limit: "Paid in full for up to 30 visits each membership year",
                                                   benefit_limit_status: "capped",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Osteopathy"),
                                                   benefit_limit: "Paid in full for up to 30 visits each membership year",
                                                   benefit_limit_status: "capped",
-                                                  product_module: product_module)
+                                                  product_module:)
         end
-        create(:product_module, :elective_product_module, product: product, name: "Evacuation", 
+        create(:product_module, :elective_product_module, product:, name: "Evacuation", 
 sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do |product_module|
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Evacuation Transport Costs to Nearest Country"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Accompanying Person Travel Costs"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Evacuation Return Journey"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
           create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Repatriation of Mortal Remains"),
                                                   benefit_limit: "Paid in full",
                                                   benefit_limit_status: "paid_in_full",
-                                                  product_module: product_module)
+                                                  product_module:)
         end
         create(:linked_product_module, core_product_module: ProductModule.find_by(name: "Gold"),
                                        elective_product_module: ProductModule.find_by(name: "Evacuation"))

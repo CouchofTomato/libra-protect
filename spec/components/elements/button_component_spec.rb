@@ -30,7 +30,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
   end
 
   context "when rendering a button with the secondary type" do
-    subject(:button_component) { described_class.new(type: type) }
+    subject(:button_component) { described_class.new(type:) }
 
     let(:type) { :secondary }
 
@@ -42,7 +42,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
   end
 
   context "when rendering a button with the width set to full" do
-    subject(:button_component) { described_class.new(width: width) }
+    subject(:button_component) { described_class.new(width:) }
 
     let(:width) { :full }
 
@@ -64,7 +64,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
   end
 
   context "when data attributes are passed in" do
-    subject(:button_component) { described_class.new(data_attributes: data_attributes) }
+    subject(:button_component) { described_class.new(data_attributes:) }
 
     let(:data_attributes) { { controller: "navbar", navbar_target: "menu_state" } }
 

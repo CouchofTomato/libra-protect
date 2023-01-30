@@ -6,8 +6,8 @@ RSpec.describe HealthPolicyComparisonSelectComponent, type: :component do
   subject(:health_policy_comparison_select) { described_class.new(health_insurance_policy: health_policy) }
 
   let(:insurer) { create(:insurer) }
-  let(:product) { create(:product, insurer: insurer) }
-  let(:core_product_module) { create(:product_module, :core_product_module, product: product) }
+  let(:product) { create(:product, insurer:) }
+  let(:core_product_module) { create(:product_module, :core_product_module, product:) }
 
   context "when the health_insurance_policy has no insurer_id" do
     let(:health_policy) { HealthInsurancePolicy.new }

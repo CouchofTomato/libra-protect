@@ -101,20 +101,20 @@ RSpec.describe HealthInsurancePolicy do
 
     before do
       create(:insurer, id: 1) do |insurer|
-        create(:product, id: 2, insurer: insurer) do |product|
+        create(:product, id: 2, insurer:) do |product|
           create(:medical_benefit, id: 1) do |medical_benefit|
-            create(:product_module, :core_product_module, id: 1, product: product) do |core_product_module|
+            create(:product_module, :core_product_module, id: 1, product:) do |core_product_module|
               create(:product_module_medical_benefit, id: 1,
                                                       product_module: core_product_module,
-                                                      medical_benefit: medical_benefit)
+                                                      medical_benefit:)
               create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
-                                                                product: product) do |elective_product_module|
+                                                                product:) do |elective_product_module|
                 create(:product_module_medical_benefit, id: 2,
                                                         benefit_weighting: 1,
                                                         product_module: elective_product_module,
-                                                        medical_benefit: medical_benefit)
-                create(:linked_product_module, core_product_module: core_product_module,
-                                              elective_product_module: elective_product_module)
+                                                        medical_benefit:)
+                create(:linked_product_module, core_product_module:,
+                                              elective_product_module:)
               end
             end
           end
@@ -152,17 +152,17 @@ RSpec.describe HealthInsurancePolicy do
 
     before do
       create(:insurer, id: 1) do |insurer|
-        create(:product, id: 2, insurer: insurer) do |product|
-          create(:product_module, :core_product_module, id: 1, name: "Gold", product: product) do |core_product_module|
+        create(:product, id: 2, insurer:) do |product|
+          create(:product_module, :core_product_module, id: 1, name: "Gold", product:) do |core_product_module|
             create(:medical_benefit, id: 1) do |medical_benefit|
               create(:product_module_medical_benefit, id: 1,
                                                       product_module: core_product_module,
-                                                      medical_benefit: medical_benefit)
+                                                      medical_benefit:)
             end
             create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
-                                                              product: product) do |elective_product_module|
-              create(:linked_product_module, core_product_module: core_product_module,
-                                             elective_product_module: elective_product_module)
+                                                              product:) do |elective_product_module|
+              create(:linked_product_module, core_product_module:,
+                                             elective_product_module:)
             end
           end
         end
@@ -190,18 +190,18 @@ RSpec.describe HealthInsurancePolicy do
 
     before do
       create(:insurer, id: 1) do |insurer|
-        create(:product, id: 2, insurer: insurer) do |product|
+        create(:product, id: 2, insurer:) do |product|
           create(:product_module, :core_product_module, id: 1, sum_assured: "100", 
-product: product) do |core_product_module|
+product:) do |core_product_module|
             create(:medical_benefit, id: 1) do |medical_benefit|
               create(:product_module_medical_benefit, id: 1,
                                                       product_module: core_product_module,
-                                                      medical_benefit: medical_benefit)
+                                                      medical_benefit:)
             end
             create(:product_module, :elective_product_module, id: 2, name: "Evacuation", 
-                                                              product: product) do |elective_product_module|
-              create(:linked_product_module, core_product_module: core_product_module,
-                                             elective_product_module: elective_product_module)
+                                                              product:) do |elective_product_module|
+              create(:linked_product_module, core_product_module:,
+                                             elective_product_module:)
             end
           end
         end

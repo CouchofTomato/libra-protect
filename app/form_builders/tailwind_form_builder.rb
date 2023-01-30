@@ -17,12 +17,12 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
 
   # rubocop:enable Layout/LineLength
 
-  def label(method, text = nil, options = {}, &block)
+  def label(method, text = nil, options = {}, &)
     super(
       method,
       text,
       options.reverse_merge(class: ELEMENT_CLASS_MAPPINGS.fetch(:label)),
-      &block
+      &
     )
   end
 
@@ -54,17 +54,17 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
     )
   end
 
-  def select(method, choices = nil, options = {}, html_options = {}, &block)
+  def select(method, choices = nil, options = {}, html_options = {}, &)
     super(
       method,
       choices,
       options,
       html_options.reverse_merge(class: ELEMENT_CLASS_MAPPINGS.fetch(:select)),
-      &block
+      &
     )
   end
 
-  def collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
+  def collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &)
     super(
       method,
       collection,
@@ -72,7 +72,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
       text_method,
       options,
       html_options.reverse_merge(class: ELEMENT_CLASS_MAPPINGS.fetch(:collection_radio_buttons)),
-      &block
+      &
     )
   end
 
