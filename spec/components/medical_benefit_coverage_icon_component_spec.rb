@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe MedicalBenefitCoverageIconComponent, type: :component do
-  subject(:icon) { described_class.new(status: status) }
+  subject(:icon) { described_class.new(status:) }
 
   context "with a status of paid_in_full" do
     let(:status) { "paid_in_full" }

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe TemporaryNotificationComponent, type: :component do
-  subject(:temporary_notification) { described_class.new(type: type, message: message) }
+  subject(:temporary_notification) { described_class.new(type:, message:) }
 
   context "with a type of alert" do
     let(:type) { "alert" }

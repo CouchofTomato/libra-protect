@@ -5,9 +5,9 @@ RSpec.describe "Health Insurance Comparison Form" do
 
   before do
     create(:insurer, name: "BUPA Global") do |insurer|
-      create(:product, name: "Lifeline", insurer: insurer) do |product|
-        create(:product_module, :core_product_module, name: "Gold", product: product) do |core_module|
-          create(:product_module, :elective_product_module, name: "Evacuation", product: product) do |elective_module|
+      create(:product, name: "Lifeline", insurer:) do |product|
+        create(:product_module, :core_product_module, name: "Gold", product:) do |core_module|
+          create(:product_module, :elective_product_module, name: "Evacuation", product:) do |elective_module|
             create(:linked_product_module, core_product_module: core_module,
                                            elective_product_module: elective_module)
           end

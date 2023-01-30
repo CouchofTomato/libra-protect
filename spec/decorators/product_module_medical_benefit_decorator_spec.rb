@@ -4,7 +4,7 @@ RSpec.describe ProductModuleMedicalBenefitDecorator do
   subject(:decorator) { described_class.new(product_module) }
 
   let(:product_module) do
-    build(:product_module_medical_benefit, benefit_limit: benefit_limit, combined_limits: combined_limits)
+    build(:product_module_medical_benefit, benefit_limit:, combined_limits:)
   end
   let(:benefit_limit) { 'unlimited' }
   let(:combined_limits) { 'all inclusive' }
