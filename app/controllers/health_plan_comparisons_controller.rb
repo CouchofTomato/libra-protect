@@ -5,7 +5,7 @@ class HealthPlanComparisonsController < ApplicationController
   def show
     @comparison_health_policies = comparison_health_insurance_policies
     @benefit_categories = MedicalBenefit.categories.keys
-    @grouped_benefits = MedicalBenefit.all.group_by(&:category)
+    @grouped_benefits = active_benefits.group_by(&:category)
     @selected_tab = params[:tab] || "inpatient"
 
     respond_to do |format|
@@ -15,6 +15,7 @@ class HealthPlanComparisonsController < ApplicationController
       end
     end
   end
+
   def new
     @health_insurance_policy = create_health_insurance_policy
     @comparison_health_policies = comparison_health_insurance_policies
@@ -52,5 +53,21 @@ class HealthPlanComparisonsController < ApplicationController
   def set_benefit_view_options
     @benefit_view_options = params['benefit_view_options']
       .reject { |_, v| v == "0" }.keys if params['benefit_view_options']
+  end
+
+  def active_benefits
+    return MedicalBenefit.all unless params[:benefit_view_options]
+
+    benefits = MedicalBenefit.all
+    benefits = benefits.where(id: active_benefit_ids) if params["benefit_view_options"]["active_benefits"] == "1"
+    benefits
+  end
+
+  def active_benefit_ids
+    @comparison_health_policies
+      .map(&:product_module_medical_benefits)
+      .flatten
+      .map(&:medical_benefit_id)
+      .uniq
   end
 end
