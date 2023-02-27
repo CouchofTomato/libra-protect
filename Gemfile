@@ -48,7 +48,7 @@ group :development, :test do
   gem "rspec-rails", "~> 6.0.1"
   gem "rubocop", "~> 1.45", require: false
   gem "rubocop-performance", "~> 1.16", require: false
-  gem "rubocop-rails", "~> 2.17", require: false
+  gem "rubocop-rails", "~> 2.18", require: false
   gem "rubocop-rspec", "~> 2.18", require: false
   gem "simplecov"
   gem "simplecov-html"
