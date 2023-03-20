@@ -12,7 +12,7 @@
     <div class="border-b border-gray-200">
       <nav class="-mb-px flex flex-wrap space-x-4" aria-label="Tabs">
         <% iterator.each do |element| %>
-          <a href="<%= health_plan_comparisons_path(tab: element) %>" class="<%= tab_classes(element) %> whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-test-id="<%= element %>-tab"><%= element.titleize %> </a>
+          <a href="<%= comparisons_individual_international_health_insurances_path(tab: element) %>" class="<%= tab_classes(element) %> whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-test-id="<%= element %>-tab"><%= element.titleize %> </a>
         <% end %>
       </nav>
     </div>
