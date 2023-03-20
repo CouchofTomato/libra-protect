@@ -49,7 +49,7 @@ group :development, :test do
   gem "rubocop", "~> 1.47", require: false
   gem "rubocop-performance", "~> 1.16", require: false
   gem "rubocop-rails", "~> 2.18", require: false
-  gem "rubocop-rspec", "~> 2.18", require: false
+  gem "rubocop-rspec", "~> 2.19", require: false
   gem "simplecov"
   gem "simplecov-html"
   gem "simplecov-lcov"
