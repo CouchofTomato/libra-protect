@@ -44,7 +44,7 @@
             <div class="flex flex-col gap-x-2 items-center">
               <h3>Export</h3>
               <div class="mt-3">
-                <%= form_with url: health_plan_comparisons_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder do |form| %>
+                <%= form_with url: comparisons_individual_international_health_insurances_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder do |form| %>
                   <div class="mt-3 flex space-x-2">
                     <%= form.check_box 'benefit_view_options[combined_limits]' %>
                     <%= form.label 'benefit_view_options[combined_limits]', "Combined limits" %>
@@ -58,7 +58,7 @@
                     <%= form.label 'benefit_view_options[active_benefits]', "Active Benefits" %>
                   </div>
                   <div class="mt-3 flex justify-center">
-                    <%= image_submit_tag "icons/excel-logo.svg", class: 'h-8 w-8', formaction: health_plan_comparisons_path(format: :xlsx) %>
+                    <%= image_submit_tag "icons/excel-logo.svg", class: 'h-8 w-8', formaction: comparisons_individual_international_health_insurances_path(format: :xlsx) %>
                 <% end %>
               </div>
             </div>

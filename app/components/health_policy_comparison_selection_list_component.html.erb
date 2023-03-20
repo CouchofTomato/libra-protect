@@ -21,7 +21,7 @@
       </div>
     </div>
     <div>
-      <%= link_to comparisons_health_insurance_policy_path(id: @health_insurance_policy.id), data: { turbo_method: :delete } do %>
+      <%= link_to comparisons_individual_international_health_insurances_path(id: @health_insurance_policy.id), data: { turbo_method: :delete } do %>
         <%= inline_svg('icons/trash_outline.svg', class: 'h-6 w-6 text-gray-700') %>
       <% end %>
     </div>

@@ -1,5 +1,5 @@
 <h2>Policy Select</h2>
-<%= form_with(model: @health_insurance_policy, url: comparisons_health_insurance_policies_path, html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
+<%= form_with(model: @health_insurance_policy, url: comparisons_individual_international_health_insurances_path, html: { class: 'space-y-6' }, builder: TailwindFormBuilder) do |f| %>
   <turbo-frame id="policy-select-form">
     <div class="mt-3" data-controller="element">
       <%= f.label :insurer_id %>
@@ -8,13 +8,13 @@
       </div>
       <noscript>
         <div class='mt-1 flex items-center justify-center'>
-          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full)) do %>
+          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_comparisons_individual_international_health_insurances_path, width: :full)) do %>
             Load Products
           <% end %>
         </div>
       </noscript>
       <div class='mt-1 items-center justify-center hidden'>
-        <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
+        <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_comparisons_individual_international_health_insurances_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
           Load Products
         <% end %>
       </div>
@@ -27,13 +27,13 @@
         </div>
         <noscript>
           <div class='mt-1 flex items-center justify-center'>
-            <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full)) do %>
+            <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_comparisons_individual_international_health_insurances_path, width: :full)) do %>
               Load Core Product Modules
             <% end %>
           </div>
         </noscript>
         <div class='mt-1 hidden items-center justify-center'>
-          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
+          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_comparisons_individual_international_health_insurances_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
             Load Core Product Modules
           <% end %>
         </div>
@@ -55,13 +55,13 @@
         </fieldset>
         <noscript>
           <div class='mt-1 flex items-center justify-center'>
-            <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full)) do %>
+            <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_comparisons_individual_international_health_insurances_path, width: :full)) do %>
               Load Elective Modules
             <% end %>
           </div>
         </noscript>
         <div class='mt-1 hidden items-center justify-center'>
-          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_health_plan_comparisons_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
+          <%= render(Elements::ButtonComponent.new(type: :secondary, formmethod: 'get', formaction: new_comparisons_individual_international_health_insurances_path, width: :full, data_attributes: { element_target: :click, turbo_frame: :policy_select_form })) do %>
             Load Elective Modules
           <% end %>
         </div>
