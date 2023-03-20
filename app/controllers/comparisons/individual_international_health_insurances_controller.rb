@@ -36,7 +36,7 @@ module Comparisons
     end
 
     def destroy
-      comparison_health_policies.delete_if { _1["id"] == params[:id] }
+      comparison_health_policies.delete_if { _1[:id] == params[:id] }
   
       respond_to do |format|
         format.html { redirect_to new_health_plan_comparisons_path }
