@@ -15,17 +15,13 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "has a blank formmethod" do
       render_inline(button_component)
 
-      expect(page).to have_button do |button|
-        button.has_selector? "button[formmethod='']"
-      end
+      expect(page).to have_selector("button[formmethod='']")
     end
 
     it "has a blank formaction" do
       render_inline(button_component)
 
-      expect(page).to have_button do |button|
-        button.has_selector? "button[formaction='']"
-      end
+      expect(page).to have_selector("button[formaction='']")
     end
   end
 
@@ -71,9 +67,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "renders a div with the data attributes parsed to be html valid" do 
       render_inline(button_component)
   
-      expect(page).to have_button do |button|
-        button.has_selector?("button[data-controller='navbar'][data-navbar-target='menu-state']")
-      end
+      expect(page).to have_selector("button[data-controller='navbar'][data-navbar-target='menu-state']")
     end
   end
 end
