@@ -45,7 +45,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails", "~> 6.2"
-  gem "rspec-rails", "~> 6.0.1"
+  gem "rspec-rails", "~> 6.0.2"
   gem "rubocop", "~> 1.50", require: false
   gem "rubocop-performance", "~> 1.17", require: false
   gem "rubocop-rails", "~> 2.19", require: false
