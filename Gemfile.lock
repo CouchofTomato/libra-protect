@@ -148,7 +148,7 @@ GEM
     globalid (1.1.0)
       activesupport (>= 5.0)
     htmlentities (4.3.4)
-    i18n (1.13.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     imagen (0.1.8)
       parser (>= 2.5, != 2.5.1.1)
@@ -339,7 +339,7 @@ GEM
       rainbow (>= 2.1, < 4.0)
       rugged (>= 0.27, < 1.6)
     unicode-display_width (2.4.2)
-    view_component (3.0.0)
+    view_component (3.1.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -401,7 +401,7 @@ DEPENDENCIES
   turbo-rails (~> 1.4)
   tzinfo-data
   undercover
-  view_component (~> 3.0)
+  view_component (~> 3.1)
   web-console (>= 4.1.0)
 
 RUBY VERSION
