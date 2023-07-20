@@ -92,9 +92,26 @@ class HealthInsurancePolicy
     core_product_module.sum_assured
   end
 
+  def valid_coverage_categories?(required_categories)
+    required_coverage_categories?(required_categories) && necessary_coverage_only?(required_categories)
+  end
+
   private
 
   def matching_benefits(benefit_id)
     product_module_medical_benefits.select { |medical_benefit| medical_benefit.medical_benefit.id == benefit_id }
+  end
+
+  def required_coverage_categories?(required_categories)
+    (required_categories - coverage_categories).empty?
+  end
+
+  def necessary_coverage_only?(required_categories)
+    (coverage_categories.exclude?("outpatient") && required_categories.exclude?("outpatient")) ||
+    (coverage_categories.include?("outpatient") && required_categories.include?("outpatient"))
+  end
+
+  def coverage_categories
+    product_modules.flat_map(&:coverage_category_list).uniq
   end
 end

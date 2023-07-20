@@ -212,4 +212,53 @@ product:) do |core_product_module|
       expect(health_insurance_policy.overall_sum_assured).to eq "100"
     end
   end
+
+  describe "#valid_coverage_categories" do
+    before do
+      create(:insurer, id: 1) do |insurer|
+        create(:product, id: 2, insurer:) do |product|
+          create(:product_module, :core_product_module, :with_coverage_categories, id: 1, name: "Gold",
+                   product:, coverage_categories: core_coverage_categories) do |core_product_module|
+            create(:medical_benefit, id: 1) do |medical_benefit|
+              create(:product_module_medical_benefit, id: 1, product_module: core_product_module, medical_benefit:)
+            end
+            create(:product_module, :elective_product_module, :with_coverage_categories, id: 2, name: "Evacuation", 
+                     product:, coverage_categories: elective_coverage_categories) do |elective_product_module|
+              create(:linked_product_module, core_product_module:, elective_product_module:)
+            end
+          end
+        end
+      end
+    end
+
+    context "when the health insurance policy includes all the required coverage categories" do
+      let(:required_coverage_categories) { ["inpatient", "outpatient", "evacuation"] }
+      let(:core_coverage_categories) { "inpatient, outpatient" }
+      let(:elective_coverage_categories) { "evacuation" }
+
+      it "returns true" do
+        expect(health_insurance_policy.valid_coverage_categories?(required_coverage_categories)).to be true
+      end
+    end
+
+    context "when the health insurance policy does not include all the required coverage categories" do
+      let(:required_coverage_categories) { ["inpatient", "medicines_and_appliances", "evacuation"] }
+      let(:core_coverage_categories) { "inpatient" }
+      let(:elective_coverage_categories) { "evacuation" }
+
+      it "returns false" do
+        expect(health_insurance_policy.valid_coverage_categories?(required_coverage_categories)).to be false
+      end
+    end
+
+    context "when the core module has outpatient coverage but the user doesn't require outpatient cover" do
+      let(:required_coverage_categories) { ["inpatient", "evacuation"] }
+      let(:core_coverage_categories) { "inpatient, outpatient" }
+      let(:elective_coverage_categories) { "evacuation" }
+
+      it "returns false" do
+        expect(health_insurance_policy.valid_coverage_categories?(required_coverage_categories)).to be false
+      end
+    end
+  end
 end

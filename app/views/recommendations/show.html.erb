@@ -1,0 +1,7 @@
+<%= render(DashboardMenuComponent.new) do %>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <%= render(HealthPolicyComparisonSelectionListComponent.with_collection(@recommendation_health_policies)) %>
+    </ul>
+  </div>
+<% end %>
