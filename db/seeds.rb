@@ -340,7 +340,7 @@ FactoryBot.create(:insurer, name: "BUPA Global", logo_name: "bupa_global_logo.pn
                                               product_module:)
     end
     FactoryBot.create(:product_module, :elective_product_module, product:, name: "Repatriation", sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do |product_module|
-      product_module.coverage_category_list = "repatriation"
+      product_module.coverage_category_list = "evacuation, repatriation"
       product_module.save
       FactoryBot.create(:product_module_medical_benefit, medical_benefit: MedicalBenefit.find_by(name: "Evacuation Transport Costs to Nearest Country"),
                                               benefit_limit: "Paid in full",
