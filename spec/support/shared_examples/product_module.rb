@@ -27,7 +27,7 @@ shared_examples "A ProductModule class" do
 
   it "doesn't allow invalid coverage categories" do
     subject.coverage_category_list.add("invalid")
-    expect(subject).to be_invalid
+    expect(subject).not_to be_valid
   end
 
   it "allows valid coverage categories" do
