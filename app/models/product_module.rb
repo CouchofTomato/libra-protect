@@ -16,6 +16,8 @@ class ProductModule < ApplicationRecord
   
   validate :coverage_categories_are_valid
 
+  accepts_nested_attributes_for :product_module_medical_benefits, allow_destroy: true
+
   private
 
   def coverage_categories_are_valid

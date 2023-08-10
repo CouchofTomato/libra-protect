@@ -13,7 +13,7 @@ RSpec.describe "Admin Dashboard Access" do
 
       find(:test_id, "admin-dashboard-link").click
 
-      expect(page).to have_current_path(admin_root_path)
+      expect(page).to have_current_path(rails_admin_path)
     end
   end
 
@@ -25,9 +25,9 @@ RSpec.describe "Admin Dashboard Access" do
     end
 
     it "does not allow them to access the admin dashboard" do
-      visit admin_root_path
+      visit rails_admin_path
 
-      expect(page).not_to have_current_path(admin_root_path)
+      expect(page).not_to have_current_path(rails_admin_path)
     end
 
     it "redirects them to the root path" do
@@ -40,12 +40,6 @@ RSpec.describe "Admin Dashboard Access" do
       visit root_path
 
       expect(page).not_to have_link("a[data-test-id='admin-dashboard-link']")
-    end
-
-    it "shows the user a warning message" do
-      visit admin_root_path
-
-      expect(find(:test_id, "flash")).to have_text(/You are not authorised to access this page!/i)
     end
   end
 end

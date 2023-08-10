@@ -25,8 +25,6 @@ gem "redis", "~> 5.0"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem 'acts-as-taggable-on', '~> 9.0'
-gem "administrate", github: "n-studio/administrate", branch: "compile-assets"
-gem "administrate_exportable", "~> 0.6.1"
 gem "axlsx_styler", "~> 1.2"
 gem "caxlsx", "~> 3.2"
 gem "caxlsx_rails", "~> 0.6.3"
@@ -35,6 +33,7 @@ gem "devise", "~> 4.9"
 gem "devise_invitable", "~> 2.0.8"
 gem "inline_svg"
 gem "jsbundling-rails"
+gem 'rails_admin', '~> 3.0'
 gem "redis-session-store", "~> 0.11.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
