@@ -10,7 +10,7 @@
     "@tailwindcss/forms": "^0.5.4",
     "autoprefixer": "^10.4.14",
     "el-transition": "^0.0.7",
-    "esbuild": "^0.18.18",
+    "esbuild": "^0.19.2",
     "postcss": "^8.4.27",
     "rails_admin": "3.1.2",
     "sass": "^1.65.1",
