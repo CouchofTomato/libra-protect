@@ -38,7 +38,7 @@ gem "redis-session-store", "~> 0.11.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails", "~> 1.4"
-gem "view_component", "~> 3.5"
+gem "view_component", "~> 3.6"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
