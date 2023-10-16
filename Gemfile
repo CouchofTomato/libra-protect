@@ -45,7 +45,7 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails", "~> 6.2"
   gem "rspec-rails", "~> 6.0.3"
-  gem "rubocop", "~> 1.56", require: false
+  gem "rubocop", "~> 1.57", require: false
   gem "rubocop-performance", "~> 1.19", require: false
   gem "rubocop-rails", "~> 2.21", require: false
   gem "rubocop-rspec", "~> 2.24", require: false
