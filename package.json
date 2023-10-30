@@ -13,7 +13,7 @@
     "esbuild": "^0.19.5",
     "postcss": "^8.4.31",
     "rails_admin": "3.1.2",
-    "sass": "^1.69.4",
+    "sass": "^1.69.5",
     "tailwindcss": "^3.3.5"
   },
   "version": "0.1.0",
