@@ -19,6 +19,15 @@ class RecommendationsController < ApplicationController
     redirect_to recommendations_path
   end
 
+  def destroy
+    recommendation_health_policies.delete_if { _1[:id] == params[:id] }
+  
+      respond_to do |format|
+        format.html { redirect_to new_health_plan_comparisons_path }
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(params[:id]) }
+      end
+  end
+
   private
 
   def reset_recommendation_health_policies_session

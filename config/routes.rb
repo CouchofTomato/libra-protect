@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     resource :individual_international_health_insurances, only: [:show, :new, :create, :destroy]
   end
 
-  resource :recommendations, only: [:show, :new, :create]
+  resource :recommendations, only: [:show, :new, :create, :destroy]
 end
