@@ -30,7 +30,7 @@ gem "caxlsx", "~> 3.2"
 gem "caxlsx_rails", "~> 0.6.3"
 gem "cssbundling-rails"
 gem "devise", "~> 4.9"
-gem "devise_invitable", "~> 2.0.8"
+gem "devise_invitable", "~> 2.0.9"
 gem "inline_svg"
 gem "jsbundling-rails"
 gem 'rails_admin', '~> 3.0'
