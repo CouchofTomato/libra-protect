@@ -27,7 +27,7 @@ RSpec.describe "Admin Dashboard Access" do
     it "does not allow them to access the admin dashboard" do
       visit rails_admin_path
 
-      expect(page).not_to have_current_path(rails_admin_path)
+      expect(page).to have_no_current_path(rails_admin_path)
     end
 
     it "redirects them to the root path" do
@@ -39,7 +39,7 @@ RSpec.describe "Admin Dashboard Access" do
     it "does not show them the link to the admin section in the dashboard menu" do
       visit root_path
 
-      expect(page).not_to have_link("a[data-test-id='admin-dashboard-link']")
+      expect(page).to have_no_link("a[data-test-id='admin-dashboard-link']")
     end
   end
 end

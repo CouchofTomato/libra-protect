@@ -28,19 +28,19 @@ RSpec.describe "Health Insurance Comparison Selection List" do
 
   context "when a Comparison List Card is displayed" do
     it "shows the insurer name" do
-      within(find(:test_id, "health-policy-component", match: :first)) do
+      within(:test_id, "health-policy-component", match: :first) do
         expect(page).to have_text "BUPA Global"
       end
     end
 
     it "shows the product name" do
-      within(find(:test_id, "health-policy-component", match: :first)) do
+      within(:test_id, "health-policy-component", match: :first) do
         expect(page).to have_text "Lifeline"
       end
     end
 
     it "shows the product module names joined with a +" do
-      within(find(:test_id, "health-policy-component", match: :first)) do
+      within(:test_id, "health-policy-component", match: :first) do
         expect(page).to have_text "Gold + Evacuation"
       end
     end
