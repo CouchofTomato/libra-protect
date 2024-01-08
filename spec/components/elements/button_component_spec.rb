@@ -15,13 +15,13 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "has a blank formmethod" do
       render_inline(button_component)
 
-      expect(page).to have_selector("button[formmethod='']")
+      expect(page).to have_css("button[formmethod='']")
     end
 
     it "has a blank formaction" do
       render_inline(button_component)
 
-      expect(page).to have_selector("button[formaction='']")
+      expect(page).to have_css("button[formaction='']")
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "does not add the full width class" do
       render_inline(button_component)
 
-      expect(page).not_to have_css ".w-full"
+      expect(page).to have_no_css ".w-full"
     end
   end
 
@@ -67,7 +67,7 @@ RSpec.describe Elements::ButtonComponent, type: :component do
     it "renders a div with the data attributes parsed to be html valid" do 
       render_inline(button_component)
   
-      expect(page).to have_selector("button[data-controller='navbar'][data-navbar-target='menu-state']")
+      expect(page).to have_css("button[data-controller='navbar'][data-navbar-target='menu-state']")
     end
   end
 end
