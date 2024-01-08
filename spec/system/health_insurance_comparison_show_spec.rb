@@ -101,11 +101,11 @@ sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do 
     end
 
     it "displays the correct icon for the benefit coverage of the selected product to compare" do
-      expect(page).to have_selector("svg[data-test-id='check-circle-outline']", count: 3)
+      expect(page).to have_css("svg[data-test-id='check-circle-outline']", count: 3)
     end
 
     it "does not display other categories tables" do
-      expect(page).not_to have_table("outpatient-comparison-table")
+      expect(page).to have_no_table("outpatient-comparison-table")
     end
   end
 
@@ -119,7 +119,7 @@ sum_assured: "Within Overall Limit", category: :evacuation_and_repatriation) do 
     end
 
     it "doesn't display the default table" do
-      expect(page).not_to have_table("inpatient-comparison-table")
+      expect(page).to have_no_table("inpatient-comparison-table")
     end
   end
 end

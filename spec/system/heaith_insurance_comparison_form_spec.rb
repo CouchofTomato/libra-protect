@@ -21,28 +21,28 @@ RSpec.describe "Health Insurance Comparison Form" do
   end
 
   it "does not display the product select if an insurer has been selected" do
-    expect(page).not_to have_select("select[data-test-id='product-select-field']")
+    expect(page).to have_no_select("select[data-test-id='product-select-field']")
   end
 
   it "displays the product select if an insurer has been selected" do
     find(:test_id, "insurer-select-field").select("BUPA Global")
 
-    expect(page).to have_selector("select[data-test-id='product-select-field']")
+    expect(page).to have_css("select[data-test-id='product-select-field']")
   end
 
   it "does not display the core product module radio buttons if a product has not been selected" do
-    expect(page).not_to have_selector("div[data-test-id='core-product-module-fields']")
+    expect(page).to have_no_css("div[data-test-id='core-product-module-fields']")
   end
 
   it "displays the core product module radio buttons if a product has been selected" do
     find(:test_id, "insurer-select-field").select("BUPA Global")
     find(:test_id, "product-select-field").select("Lifeline")
 
-    expect(page).to have_selector("div[data-test-id='core-product-module-fields']")
+    expect(page).to have_css("div[data-test-id='core-product-module-fields']")
   end
 
   it "does not display the elective product module radio buttons if a core product module has not been selected" do
-    expect(page).not_to have_selector("div[data-test-id='elective-product-modules-fields']")
+    expect(page).to have_no_css("div[data-test-id='elective-product-modules-fields']")
   end
 
   it "displays the elective product module radio buttons if a core product module has not been selected" do
@@ -50,6 +50,6 @@ RSpec.describe "Health Insurance Comparison Form" do
     find(:test_id, "product-select-field").select("Lifeline")
     page.choose("Gold")
 
-    expect(page).to have_selector("div[data-test-id='elective-product-modules-fields']")
+    expect(page).to have_css("div[data-test-id='elective-product-modules-fields']")
   end
 end
