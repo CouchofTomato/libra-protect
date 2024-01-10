@@ -18,7 +18,8 @@ class HealthPolicyComparisonSelectComponent < ViewComponent::Base
   end
 
   def elective_product_modules_viewable
-    core_product_modules_viewable && health_insurance_policy.core_product_module
+    core_product_modules_viewable && health_insurance_policy.core_product_module &&
+      health_insurance_policy.core_product_module.elective_product_modules.any?
   end
 
   def active_elective_product_module_categories
