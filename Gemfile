@@ -46,7 +46,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.4"
   gem "rspec-rails", "~> 6.1.2"
   gem "rubocop", "~> 1.63", require: false
-  gem "rubocop-performance", "~> 1.20", require: false
+  gem "rubocop-performance", "~> 1.21", require: false
   gem "rubocop-rails", "~> 2.24", require: false
   gem "rubocop-rspec", "~> 2.27", require: false
   gem "simplecov"
