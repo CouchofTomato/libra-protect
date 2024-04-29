@@ -12,7 +12,7 @@ gem "pg", "~> 1.5"
 # Use Puma as the app server
 gem "puma", "~> 6.4"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.11"
+gem "jbuilder", "~> 2.12"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.2"
 # Use Active Model has_secure_password
