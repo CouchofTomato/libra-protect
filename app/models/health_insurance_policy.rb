@@ -33,7 +33,7 @@ class HealthInsurancePolicy
   end
 
   def initialize(params = {})
-    super(params)
+    super
     @id ||= SecureRandom.uuid
   end
 
