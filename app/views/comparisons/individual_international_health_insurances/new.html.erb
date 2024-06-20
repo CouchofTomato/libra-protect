@@ -1,29 +1,28 @@
-<%= render(DashboardMenuComponent.new) do %>
-  <main class="min-w-0 flex-1 border-t border-gray-200 lg:flex">
-    <!-- Primary column -->
-    <section aria-labelledby="primary-heading" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-last">
-      <h1 id="primary-heading" class="sr-only">Health Policy Comparison List</h1>
-      <div class="bg-white shadow overflow-hidden sm:rounded-md">
-        <ul role="list" class="divide-y divide-gray-200">
-          <%= render(HealthPolicyComparisonSelectionListComponent.with_collection(@comparison_health_policies)) %>
-        </ul>
-      </div>
-      <div class="flex justify-center">
-        <% if @comparison_health_policies.any? %>
-          <%= link_to "Compare", comparisons_individual_international_health_insurances_path, class: "inline-flex items-center px-1 py-1 mt-2 border border-transparent text-sm justify-center font-medium rounded-md 
+<% content_for :header, 'Comparison' %>
+<div class="min-w-0 flex-1 border-t border-gray-200 lg:flex">
+  <!-- Primary column -->
+  <section aria-labelledby="primary-heading" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-last">
+    <h1 id="primary-heading" class="sr-only">Health Policy Comparison List</h1>
+    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+      <ul role="list" class="divide-y divide-gray-200">
+        <%= render(HealthPolicyComparisonSelectionListComponent.with_collection(@comparison_health_policies)) %>
+      </ul>
+    </div>
+    <div class="flex justify-center">
+      <% if @comparison_health_policies.any? %>
+        <%= link_to "Compare", comparisons_individual_international_health_insurances_path, class: "inline-flex items-center px-1 py-1 mt-2 border border-transparent text-sm justify-center font-medium rounded-md 
 shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 w-11/12", data: { test_id: "compare-btn" } %>
-        <% end %>
-      </div>
-    </section>
-    <!-- Secondary column (hidden on smaller screens) -->
-    <aside class="hidden lg:block lg:flex-shrink-0 lg:order-first">
-      <div class="h-full relative flex flex-col w-96 border-r border-gray-200 overflow-y-auto">
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-          <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <%= render HealthPolicyComparisonSelectComponent.new health_insurance_policy: @health_insurance_policy %>
-          </div>
+      <% end %>
+    </div>
+  </section>
+  <!-- Secondary column (hidden on smaller screens) -->
+  <aside class="hidden lg:block lg:flex-shrink-0 lg:order-first">
+    <div class="h-full relative flex flex-col w-96 border-r border-gray-200 overflow-y-auto">
+      <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <%= render HealthPolicyComparisonSelectComponent.new health_insurance_policy: @health_insurance_policy %>
         </div>
       </div>
-    </aside>
-  </main>
-<% end %>
+    </div>
+  </aside>
+</div>
