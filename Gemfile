@@ -27,7 +27,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem 'acts-as-taggable-on', '~> 10.0'
 gem "axlsx_styler", "~> 1.2"
 gem "caxlsx", "~> 3.2"
-gem "caxlsx_rails", "~> 0.6.3"
+gem "caxlsx_rails", "~> 0.6.4"
 gem "cssbundling-rails"
 gem "devise", "~> 4.9"
 gem "devise_invitable", "~> 2.0.9"
