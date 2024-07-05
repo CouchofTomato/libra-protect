@@ -4,14 +4,17 @@
 
 import { application } from "./application"
 
-import ClassToggleController from "./class_toggle_controller.js"
+import ClassToggleController from "./class_toggle_controller"
 application.register("class-toggle", ClassToggleController)
 
-import ElementController from "./element_controller.js"
+import ClickTransitionController from "./click_transition_controller"
+application.register("click-transition", ClickTransitionController)
+
+import ElementController from "./element_controller"
 application.register("element", ElementController)
 
-import RevealController from "./reveal_controller.js"
+import RevealController from "./reveal_controller"
 application.register("reveal", RevealController)
 
-import TransitionController from "./transition_controller.js"
+import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)

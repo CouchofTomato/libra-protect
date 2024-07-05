@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-50">
+<html class="h-full bg-gray-100">
   <head>
     <title>LibraProtect</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,7 +9,19 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body class="h-full">
-    <%= yield %>
+    <div class="min-h-full">
+      <%= render "shared/navbar" %>
+      <header class="bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <h1 class="text-lg font-semibold leading-6 text-gray-900"><%= content_for :header %></h1>
+        </div>
+      </header>
+      <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          <%= yield %>
+        </div>
+      </main>
+    </div>
     <div aria-live="assertive" class="z-50 fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start" data-controller="transition">
       <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
         <% flash.each do |type, message| %>

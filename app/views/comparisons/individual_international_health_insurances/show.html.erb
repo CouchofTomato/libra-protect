@@ -1,71 +1,70 @@
-<%= render(DashboardMenuComponent.new) do %>
-  <main class="min-w-0 flex-1 border-t border-gray-200 lg:flex">
-    <!-- Primary column -->
-    <turbo-frame id="benefit-comparison" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-first">
-      <section aria-labelledby="primary-heading">
-        <h1 id="primary-heading" class="sr-only">Health Policy Comparison</h1>
-        <!-- Tab Menu -->
-        <%= render TabMenuComponent.new(iterator: @benefit_categories, selected_tab: @selected_tab) %>
-        <div class="p-4">
-          <table class="table-fixed divide-y divide-gray-300" id="<%= @selected_tab %>-comparison-table">
-            <thead>
+<% content_for :header, 'Comparison' %>
+<div class="min-w-0 flex-1 border-t border-gray-200 lg:flex">
+  <!-- Primary column -->
+  <turbo-frame id="benefit-comparison" class="min-w-0 flex-1 h-full flex flex-col overflow-y-auto lg:order-first">
+    <section aria-labelledby="primary-heading">
+      <h1 id="primary-heading" class="sr-only">Health Policy Comparison</h1>
+      <!-- Tab Menu -->
+      <%= render TabMenuComponent.new(iterator: @benefit_categories, selected_tab: @selected_tab) %>
+      <div class="p-4">
+        <table class="table-fixed divide-y divide-gray-300" id="<%= @selected_tab %>-comparison-table">
+          <thead>
+            <tr>
+              <th class="w-52"></th>
+              <% @comparison_health_policies.each do |policy| %>
+                <th scope="col" class="w-52 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 md:pl-0">
+                  <div><%= policy.insurer.name %></div>
+                  <div><%= policy.product.name %></div>
+                  <div><%= policy.product_module_names.join(" + ") %></div>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <% @grouped_benefits[@selected_tab]&.each do |benefit| %>
               <tr>
-                <th class="w-52"></th>
+                <td class="w-52 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0"><%= benefit.name %></td>
                 <% @comparison_health_policies.each do |policy| %>
-                  <th scope="col" class="w-52 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 md:pl-0">
-                    <div><%= policy.insurer.name %></div>
-                    <div><%= policy.product.name %></div>
-                    <div><%= policy.product_module_names.join(" + ") %></div>
-                  </th>
+                  <td class="w-52 py-4 px-3 text-sm text-gray-500">
+                    <%= render MedicalBenefitCoverageIconComponent.new(status: policy.product_module_medical_benefit(benefit.id).benefit_limit_status) %>
+                  </td>
                 <% end %>
               </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-              <% @grouped_benefits[@selected_tab]&.each do |benefit| %>
-                <tr>
-                  <td class="w-52 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0"><%= benefit.name %></td>
-                  <% @comparison_health_policies.each do |policy| %>
-                    <td class="w-52 py-4 px-3 text-sm text-gray-500">
-                      <%= render MedicalBenefitCoverageIconComponent.new(status: policy.product_module_medical_benefit(benefit.id).benefit_limit_status) %>
-                    </td>
-                  <% end %>
-                </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </turbo-frame>
+  <!-- Secondary column (hidden on smaller screens) -->
+  <aside class="hidden lg:block lg:flex-shrink-0 lg:order-last">
+    <div class="h-full relative flex flex-col w-64 border-r border-gray-200 overflow-y-auto">
+      <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div class="flex flex-col gap-x-2 items-center">
+            <h3>Export</h3>
+            <div class="mt-3">
+              <%= form_with url: comparisons_individual_international_health_insurances_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder do |form| %>
+                <div class="mt-3 flex space-x-2">
+                  <%= form.check_box 'benefit_view_options[combined_limits]' %>
+                  <%= form.label 'benefit_view_options[combined_limits]', "Combined limits" %>
+                </div>
+                <div class="mt-3 flex space-x-2">
+                  <%= form.check_box 'benefit_view_options[module_limits]' %>
+                  <%= form.label 'benefit_view_options[module_limits]', "Module limits" %>
+                </div>
+                <div class="mt-3 flex space-x-2">
+                  <%= form.check_box 'benefit_view_options[active_benefits]' %>
+                  <%= form.label 'benefit_view_options[active_benefits]', "Active Benefits" %>
+                </div>
+                <div class="mt-3 flex justify-center">
+                  <%= image_submit_tag "icons/excel-logo.svg", class: 'h-8 w-8', formaction: comparisons_individual_international_health_insurances_path(format: :xlsx) %>
+                </div>
               <% end %>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </turbo-frame>
-    <!-- Secondary column (hidden on smaller screens) -->
-    <aside class="hidden lg:block lg:flex-shrink-0 lg:order-last">
-      <div class="h-full relative flex flex-col w-64 border-r border-gray-200 overflow-y-auto">
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-          <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <div class="flex flex-col gap-x-2 items-center">
-              <h3>Export</h3>
-              <div class="mt-3">
-                <%= form_with url: comparisons_individual_international_health_insurances_path, method: :get, html: { class: 'space-y-6' }, builder: TailwindFormBuilder do |form| %>
-                  <div class="mt-3 flex space-x-2">
-                    <%= form.check_box 'benefit_view_options[combined_limits]' %>
-                    <%= form.label 'benefit_view_options[combined_limits]', "Combined limits" %>
-                  </div>
-                  <div class="mt-3 flex space-x-2">
-                    <%= form.check_box 'benefit_view_options[module_limits]' %>
-                    <%= form.label 'benefit_view_options[module_limits]', "Module limits" %>
-                  </div>
-                  <div class="mt-3 flex space-x-2">
-                    <%= form.check_box 'benefit_view_options[active_benefits]' %>
-                    <%= form.label 'benefit_view_options[active_benefits]', "Active Benefits" %>
-                  </div>
-                  <div class="mt-3 flex justify-center">
-                    <%= image_submit_tag "icons/excel-logo.svg", class: 'h-8 w-8', formaction: comparisons_individual_international_health_insurances_path(format: :xlsx) %>
-                  </div>
-                <% end %>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </aside>
-  </main>
-<% end %>
+    </div>
+  </aside>
+</div>
