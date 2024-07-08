@@ -33,7 +33,7 @@ gem "devise", "~> 4.9"
 gem "devise_invitable", "~> 2.0.9"
 gem "inline_svg"
 gem "jsbundling-rails"
-gem 'rails_admin', '~> 3.0'
+gem 'rails_admin', '~> 3.1'
 gem "redis-session-store", "~> 0.11.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
