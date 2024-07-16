@@ -12,7 +12,7 @@
     "el-transition": "^0.0.7",
     "esbuild": "^0.23.0",
     "postcss": "^8.4.39",
-    "rails_admin": "3.1.2",
+    "rails_admin": "3.1.4",
     "sass": "^1.77.6",
     "tailwindcss": "^3.4.4"
   },
