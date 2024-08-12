@@ -14,7 +14,7 @@
     "postcss": "^8.4.40",
     "rails_admin": "3.1.4",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.7"
+    "tailwindcss": "^3.4.9"
   },
   "version": "0.1.0",
   "devDependencies": {
