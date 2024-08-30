@@ -74,7 +74,7 @@ end
 group :test do
   gem "capybara"
   gem "cuprite"
-  gem "shoulda-matchers", "~> 6.2"
+  gem "shoulda-matchers", "~> 6.4"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
