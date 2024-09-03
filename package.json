@@ -11,7 +11,7 @@
     "autoprefixer": "^10.4.20",
     "el-transition": "^0.0.7",
     "esbuild": "^0.23.1",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.44",
     "rails_admin": "3.1.4",
     "sass": "^1.77.8",
     "tailwindcss": "^3.4.10"
