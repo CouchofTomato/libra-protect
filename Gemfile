@@ -24,7 +24,7 @@ gem "redis", "~> 5.3"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
-gem 'acts-as-taggable-on', '~> 10.0'
+gem 'acts-as-taggable-on', '~> 11.0'
 gem "axlsx_styler", "~> 1.2"
 gem "caxlsx", "~> 3.2"
 gem "caxlsx_rails", "~> 0.6.4"
