@@ -37,7 +37,7 @@ gem 'rails_admin', '~> 3.1'
 gem "redis-session-store", "~> 0.11.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
-gem "turbo-rails", "~> 1.5"
+gem "turbo-rails", "~> 2.0"
 gem "view_component", "~> 3.14"
 
 group :development, :test do
