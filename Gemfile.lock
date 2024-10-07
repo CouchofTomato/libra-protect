@@ -369,7 +369,7 @@ GEM
       rugged (>= 0.27, < 1.8)
     unicode-display_width (2.6.0)
     useragent (0.16.10)
-    view_component (3.14.0)
+    view_component (3.16.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -433,7 +433,7 @@ DEPENDENCIES
   turbo-rails (~> 2.0)
   tzinfo-data
   undercover
-  view_component (~> 3.14)
+  view_component (~> 3.16)
   web-console (>= 4.1.0)
 
 RUBY VERSION
