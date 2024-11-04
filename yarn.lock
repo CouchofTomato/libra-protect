@@ -529,10 +529,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/ujs@npm:^7.1.401":
-  version: 7.1.401
-  resolution: "@rails/ujs@npm:7.1.401"
-  checksum: 10c0/08eae084c80e837e47cc01d0be25a431495f7dea381dcaaa4ce39a3217fac46bf87d169b3dfcf304ae16e0714de7435c2b8c5eb8d5052e3ba70ef3050a72fa3c
+"@rails/ujs@npm:^7.1.500":
+  version: 7.1.500
+  resolution: "@rails/ujs@npm:7.1.500"
+  checksum: 10c0/365f9a3944454d64c83463de017d9be7064494d6376c1f4d8cbff38c0f278bac7d9ab85f19b31abb70f0e775f30b64ad682fd4545bc27b5d91baef3618642b9f
   languageName: node
   linkType: hard
 
@@ -1348,7 +1348,7 @@ __metadata:
     "@prettier/plugin-ruby": "npm:^4.0.4"
     "@rails/actioncable": "npm:^7.2.101"
     "@rails/activestorage": "npm:^7.2.101"
-    "@rails/ujs": "npm:^7.1.401"
+    "@rails/ujs": "npm:^7.1.500"
     "@tailwindcss/forms": "npm:^0.5.9"
     autoprefixer: "npm:^10.4.20"
     el-transition: "npm:^0.0.7"
