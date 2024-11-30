@@ -513,12 +513,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/activestorage@npm:^7.2.101":
-  version: 7.2.101
-  resolution: "@rails/activestorage@npm:7.2.101"
+"@rails/activestorage@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@rails/activestorage@npm:8.0.0"
   dependencies:
     spark-md5: "npm:^3.0.1"
-  checksum: 10c0/87222bce6ca247897b356fe259322516ada7b93c12098cfc6f88f3221aaadeafdc333f796b87421976c1185a5086825119c424905a182f117685ed0b86ff39e6
+  checksum: 10c0/e8a0ac86eda132f366ae75ac222a1b21cf6f2de800efb761307db4d777c8fd94efa9bbee0a8b618843eb7d9253a33ba924f6602ef53706972d6d406e7a11426c
   languageName: node
   linkType: hard
 
@@ -1347,7 +1347,7 @@ __metadata:
     "@hotwired/turbo-rails": "npm:^8.0.12"
     "@prettier/plugin-ruby": "npm:^4.0.4"
     "@rails/actioncable": "npm:^7.2.101"
-    "@rails/activestorage": "npm:^7.2.101"
+    "@rails/activestorage": "npm:^8.0.0"
     "@rails/ujs": "npm:^7.1.500"
     "@tailwindcss/forms": "npm:^0.5.9"
     autoprefixer: "npm:^10.4.20"
