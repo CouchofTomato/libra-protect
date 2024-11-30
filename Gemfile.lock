@@ -277,8 +277,8 @@ GEM
       redis-client (>= 0.22.0)
     redis-client (0.22.2)
       connection_pool
-    redis-session-store (0.11.5)
-      actionpack (>= 6, < 8)
+    redis-session-store (0.11.6)
+      actionpack (>= 5.2.4.1, < 9)
       redis (>= 3, < 6)
     regexp_parser (2.9.3)
     reline (0.5.12)
@@ -415,7 +415,7 @@ DEPENDENCIES
   rails (~> 7.2.2)
   rails_admin (~> 3.2)
   redis (~> 5.3)
-  redis-session-store (~> 0.11.4)
+  redis-session-store (~> 0.11.6)
   rspec-rails (~> 7.1.0)
   rubocop (~> 1.67)
   rubocop-capybara
