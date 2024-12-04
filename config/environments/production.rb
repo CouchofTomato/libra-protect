@@ -62,7 +62,7 @@ Rails.application.configure do
     key: "_session_production",
     serializer: :json,
     redis: {
-      expire_after: 1.year,
+      expire_after: nil,
       key_prefix: "app:session:",
       url: ENV.fetch("REDIS_URL", nil)
     }
