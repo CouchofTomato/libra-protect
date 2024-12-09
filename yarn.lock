@@ -1366,7 +1366,7 @@ __metadata:
     postcss: "npm:^8.4.49"
     prettier: "npm:^3.4.2"
     prettier-plugin-tailwindcss: "npm:^0.6.9"
-    rails_admin: "npm:3.2.1"
+    rails_admin: "npm:3.3.0"
     sass: "npm:^1.81.0"
     tailwindcss: "npm:^3.4.15"
   languageName: unknown
@@ -1897,9 +1897,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rails_admin@npm:3.2.1":
-  version: 3.2.1
-  resolution: "rails_admin@npm:3.2.1"
+"rails_admin@npm:3.3.0":
+  version: 3.3.0
+  resolution: "rails_admin@npm:3.3.0"
   dependencies:
     "@babel/runtime": "npm:^7.16.7"
     "@fortawesome/fontawesome-free": "npm:>=5.15.0 <7.0.0"
@@ -1910,7 +1910,7 @@ __metadata:
     flatpickr: "npm:^4.6.9"
     jquery: "npm:^3.6.0"
     jquery-ui: "npm:^1.12.1 <1.14.0"
-  checksum: 10c0/7617164234a0fbd7d545597272c68dbb67c7bcd92210c58eb7bacc8e1d369a67f8853d5e28cfb75532c7de3df5082b5a1478a2ed1dbfd7aa77a9f587a2cfd0db
+  checksum: 10c0/9105706b97adae18e2d0c40f17f05f15430b00a1549a53ab59413ec483cc57a62ebeda7990eb1a1c9cdc8678a59a63ff443508813b979792668f8fad4ed78a2d
   languageName: node
   linkType: hard
 
