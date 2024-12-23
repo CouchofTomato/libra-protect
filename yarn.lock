@@ -190,9 +190,9 @@ __metadata:
   linkType: hard
 
 "@fortawesome/fontawesome-free@npm:>=5.15.0 <7.0.0":
-  version: 6.7.1
-  resolution: "@fortawesome/fontawesome-free@npm:6.7.1"
-  checksum: 10c0/5bebf5f9684fc377fb7df36cf7ee37e112a8987e592228ac464b81edc0eb002e1fa8675977b82d15d304cda813da4fafbc38cf0c3ca2744c710390a58a460495
+  version: 6.7.2
+  resolution: "@fortawesome/fontawesome-free@npm:6.7.2"
+  checksum: 10c0/e27fb8b846f0bcf40c904acc210829a640329fc7b7ec4e42a7c43cb53739ed6052d78df90810f555a5c80bc608fee5a5174db3fa6da617f582d6210009a19278
   languageName: node
   linkType: hard
 
